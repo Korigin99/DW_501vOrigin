@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+</head>
+<body>
+    <div>
+        아이디 입력 : <input type="text" placeholder="ex) ex123" >
+        <input type="button" value="중복확인" onclick="idcomple()">
+        <br>
+        비밀번호 입력 : <input type="password" placeholder="ex) asd123!" id="pass1">
+        <br>
+        비밀번호 확인 : <input type="password" placeholder="ex) asd123!" id="pass2">
+        <input type="button" value="비밀번호 확인" onclick="same()">
+    </div>
+</body>
+<script>
+    function idcomple(){
+        alert("사용 가능한 아이디입니다!")
+    }
+    function same(){
+        var p1 = document.getElementById('pass1').value;
+        var p2 = document.getElementById('pass2').value;
+        if(p1 != p2){
+            alert("비밀번호가 일치하지 않습니다.");
+            false
+        }else{
+            alert("비밀번호가 일치합니다.");
+            return true;
+        }
+    }
+</script>
+</html>

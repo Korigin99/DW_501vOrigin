@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        select option{
+            text-align: center;
+        }
+        
+        table, th, td{
+            border: 1px solid black;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1> 로그인 화면 </h1>
+    <b>아이디</b> : <input type="text" placeholder="아이디..." > 
+    <b>비밀번호</b> : <input type="password" placeholder="비밀번호...">
+    <!-- 버튼을 만드는  방법 1 -->
+    <input type="button" value="login">
+    <!-- 버튼을 만드는  방법 2 -->
+    <button>회원가입</button>
+    비밀번호 찾기
+    <!-- a 태그 : 다른 페이지로 이동할 때 사용 -->
+    <a href="https://www.naver.com/">네이버 이동</a>
+    <h2>input 태그 종류 알아보기</h2>
+    <input type="month">
+    <input type="date">
+    <input type="week">
+    <input type="time">
+    <input type="file">
+    <input type="checkbox">
+    <input type="number" max="100" min="0">
+    <h2> select 태그 배워보기 </h2>
+    <select>
+        <option disabled style="background:gray;color:white">커피</option>
+        <option> 아이스 아메리카노 M</option>
+        <option> 아이스 아메리카노 L</option>
+        <option> 원조 커피</option>
+    </select>
+    
+    <h2> table 태그를 배워보기 </h2>
+    <!-- tr 태그는 행 td 태그는 열 -->
+    <table>
+        <thead>
+            <tr>  <!-- tr은 table raw의 줄임말로 행을 의미-->
+                <!-- th는 table head의 줄임말로 열을 의미 -->
+                <th>출장비 내역</th>
+                <th>금액</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <!-- td는 table data의 줄임말로 열을 의미 -->
+                <td>교통비</td>
+                <td>32,000</td>
+            </tr>
+            <tr>
+                <td>숙박비</td>
+                <td>100,000</td>
+            </tr>
+            <tr>
+                <td>식비</td>
+                <td>50,000</td>
+            </tr>
+        </tbody>
+    </table>
+    <h2>table 문제 풀어보기</h2>
+    <table>
+       <thead>
+            <tr>
+                <th>요일</th>
+                <th>수업</th>
+            </tr>
+       </thead>
+       <tbody>
+            <tr>
+                <td>월요일</td>
+                <td>
+                    <select>
+                        <option value="">요가</option>
+                        <option value="">태권도</option>
+                        <option value="">필라테스</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>화요일</td>
+                <td>태권도</td>
+            </tr>
+            <tr>
+                <td>수요일</td>
+                <td>필라테스</td>
+            </tr>
+        </tbody>
+    </table>
+    <h2> 문제 풀어보기 </h2>
+     아이디 : <input type="text" placeholder="아이디...">@
+        <select name="" id="">
+            <option value="">gmail.com</option>
+            <option value="">naver.com</option>
+            <option value="">daum.net</option>
+        </select><br>
+    비밀번호 : <input type="password" placeholder="비밀번호...">
+</body>
+</html>

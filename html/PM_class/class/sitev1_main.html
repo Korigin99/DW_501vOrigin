@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0811</title>
+    <style>
+        #login_box{
+            margin: 200px auto;
+            width: 200px;
+            height: 150px;
+            background: #BDBDBD;
+        }
+        #login_box #pass_ok{
+            text-align: center;
+        }
+        #login_box2 input{
+            text-align: left;
+            width: 95%;
+        }
+        #signup_box{
+            border: none;
+            outline: none;
+            background:#BDBDBD;
+        }
+        #signup_box:hover {
+            background: aqua;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <div id="login_box">
+        <h2 style="text-align: center;">DW login</h2>
+        <div id="login_box2">
+        <div>
+        <input type="text" placeholder="id...">
+        </div>
+        <div>
+        <input type="password" placeholder="password...">
+        </div>
+        </div>
+        <div id="pass_ok">
+        <a href="#"><input type="button" value="sign in" onclick="signin()"></a>
+        <div id="signup_box">
+        <a href="sitev1_signup.html"><input type="button" value="sign up" onclick="signup()"></a>
+        </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    function signin(){
+        alert("로그인 완료!")
+    }
+    function signup(){
+        alert("회원가입")
+    }           
+</script>
+
+</html>

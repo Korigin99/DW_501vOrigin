@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <!-- flex 수업 -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0822-1</title>
+    <style>
+        .container{
+            display: flex;
+            /* flex-direction: 세로로 배치; */
+            flex-direction: column;
+            /* justify-content: 컨테이너 안에 있는 아이템 위치 조정; */
+            /* space-around, space-between */
+            justify-content: space-around;
+            width: 500px;
+            height: 200px;
+            border: 1px solid black;
+            
+        }
+
+        .item01{
+            background: lightgreen;
+            flex-basis: 30%;
+            /* flex-basis: 아이템 크기 조절; */
+        }
+
+        .item02{
+            background: lightcoral;
+            flex-basis: 20%;
+        }
+
+        .item03{
+            background: lightblue;
+            flex-basis: 50%;
+        }
+    </style>
+
+</head>
+<body>
+    <!-- flex : 컨테이너와 아이템으로 구성됨 -->
+
+    <div class="container">
+        <div class="item01">아이템 1</div>
+        <div class="item02">아이템 2</div>
+        <div class="item03">아이템 3</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <style>
+        #signup_box{
+            margin: 200px auto;
+            width: 450px;
+            height: 150px;
+            background: rgb(141, 137, 137);
+        }
+        #signup_box .signup_ok inp{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="signup_box">
+        <div>
+        아이디 입력 : <input type="text" placeholder="ex) ex123" >
+        <input type="button" value="중복확인" onclick="idcomple()">
+        </div>
+        <div id="pass_ok">
+        비밀번호 입력 : <input type="password" placeholder="ex) asd123!" id="pass1"><br>
+        비밀번호 확인 : <input type="password" placeholder="ex) asd123!" id="pass2">
+        <input type="button" value="비밀번호 확인" onclick="same()">
+        </div>
+        <div class="signup_ok">
+            <a href="sitev1_main.html"><input type="button" value="회원가입" onclick="signcomple()"></a>
+        </div>
+    </div>
+</body>
+<script>
+    function idcomple(){
+        alert("사용 가능한 아이디입니다!")
+    }
+    function same(){
+        var p1 = document.getElementById('pass1').value;
+        var p2 = document.getElementById('pass2').value;
+        if(p1.length < 6) {
+              alert('입력한 글자가 6글자 이상이어야 합니다.');
+              return false;
+          }
+          
+          if( p1 != p2 ) {
+            alert("비밀번호가 일치하지 않습니다.");
+            return false;
+          } else{
+            alert("비밀번호가 일치합니다.");
+            return true;
+          }
+    }
+    function signcomple(){
+        alert("회원가입에 성공하였습니다!")
+    }
+</script>
+</html>

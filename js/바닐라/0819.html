@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            
+        }
+
+        div{
+            margin: 150px auto;
+            width: 600px;
+            height: auto;
+            background: #afafafaf;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div>
+    <input id="memo" type="text">
+    <input id="name" type="text">
+    <input id="apple" type="text">
+    <button onclick="test()">확인</button>
+
+    <h3>숫자 입력 받기</h3>
+    <input type="number" id="num">
+    <button onclick="test02()">확인</button>
+
+    <h3>주문 수량 받기</h3>
+    <input type="number" id="count">
+    <button onclick="count()">주문</button>
+
+    <h3>메뉴 선택 하기</h3>
+    <select id="menu">
+        <option value="메뉴를 선택해주세요" disabled selected id="dis">메뉴를 선택해주세요</option>
+        <option value="앗!메리카노">앗!메리카노</option>
+        <option value="원조커피">원조커피</option>
+        <option value="빽스치노">빽스치노</option>
+        <option value="연유라떼">연유라떼</option>
+    </select>
+    <button onclick="test04()">선택 완료</button>
+    </div>
+</body>
+<script>
+    function test(){
+        var v1 = document.getElementById("apple").value;
+        alert(v1);
+    }
+
+    function test02(){
+        var n = document.getElementById("num").value;
+        if(n>=10){
+            alert("10 이상입니다.!");
+        }else{
+            alert("입력하신 숫자가 10보다 작습니다.");
+        }
+        
+    }
+
+    function count(){
+        var n = document.getElementById("count").value;
+
+        if(n>=20){
+            alert("죄송합니다. 1인당 20개 미만으로 주문 가능하십니다.");
+        }
+    }
+
+    function test04(){
+        var menu = document.getElementById("menu").value;
+        var dis = document.getElementById("dis").value;
+        if(menu==dis){
+            alert("잘못된 선택입니다.");
+        }if(menu == '빽스치노') {
+            alert("죄송합니다. 빽스치노는 품절입니다.")
+        }
+    }
+
+</script>
+</html>

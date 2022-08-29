@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #main{
+            margin-left:700px;
+            margin-top: 300px;
+            background: #999;
+            width:400px;
+            height: 200px;
+            padding: 20px;
+        }
+        h3{
+            padding-top: 10px;
+        }
+        #select{
+            width: 100%;
+        }
+        #order{
+            width: 100%;
+        }
+        #size{
+            padding-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <h3>빽다방 메뉴판</h3>
+        <select id="select">
+            <option disabled style="background:gray;color:white" selected="====커피선택====">====커피선택====</option>
+            <option>아메리카노</option>
+            <option>카페라떼</option>
+        </select>
+        <div id="size">
+            L size<input type="checkbox">
+            M size:<input type="checkbox">
+        </div>
+        <br>
+        <input type="button" value="주문하기" id="order">
+    </div>
+</body>
+</html>

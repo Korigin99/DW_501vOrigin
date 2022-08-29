@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container{
+            margin: 100px auto;
+            width: 200px;
+            height: 400px;
+            background: #ccc;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .col{
+            width: 50%;
+            height: 50%;
+        }
+
+        .col:nth-child(1){
+            background: red;
+            border-bottom: 1px solid black;
+        }
+        .col:nth-child(2){
+            background: blue;
+            border-bottom: 1px solid black;
+        }
+        .col:nth-child(3){
+            background: red;
+        }
+
+        .col:nth-child(4){
+            background: blue;
+        }
+    </style>
+<body>
+    <div class="container">
+        <div class="col"></div>
+        <div class="col"></div>
+        <div class="col"></div>
+        <div class="col"></div>
+    </div>
+</body>
+</html>
