@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div id="input_box">
+            <input type="text" placeholder="이름입력">
+            <input type="text" placeholder="연락처입력">
+            <input type="text" placeholder="이메일 입력">
+            <input type="text" placeholder="주소입력">
+            <input type="text" placeholder="기타사항입력">
+        </div>
+        <button onclick="Click()">제출</button>
+    </div>
+</body>
+<script>
+    function Click() {
+        var x = document.getElementById('input_box').children;
+        for (var i = 0; i < x.length; i++) {
+            if (x[i].value == '') {
+                alert('빈 곳을 입력해주세요');
+                x[i].focus();
+                return false;
+            }
+        }
+    }
+</script>
+
+</html>

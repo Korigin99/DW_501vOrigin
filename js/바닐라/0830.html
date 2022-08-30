@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box" class="input_box">
+        <input type="text" value="안녕">
+        <input type="text" value="디지몬">
+        <input type="text" value="네 꿈을">
+        <input type="text" value="잠이 들래">
+        <input type="text" value="">
+        <input type="text" value="">
+        <input type="text" value="">
+        <input type="text" value="">
+        <input type="text" value="">
+        <input type="text" value="">
+    </div>
+    <button onclick="check()">확인</button>
+</body>
+<script>
+
+    function check() {
+        // children : 자식태그를 가져옴
+        var x = document.getElementById('box').children;
+
+        for (var i = 0; i < x.length; i++) {
+            console.log(x[i]);
+            if (x[i].value == '') {
+                console.log('입력해주세요');
+                x[i].focus();
+                return false;
+            }
+        }
+    }
+
+    for (var i = 0; i < 5; i++) {
+        if (i == 3) {
+            console.log(i);
+        }
+    }
+</script>
+
+</html>
