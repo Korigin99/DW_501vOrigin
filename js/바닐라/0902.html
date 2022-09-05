@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+</body>
+<script>
+
+    var array = [10, 4, 8, 9, 20];
+
+    console.log(array[1]);
+
+    var x = array[1];
+    if (x == 4) {
+        console.log(x);
+    }
+
+    console.log(array[4]);
+
+    var size = array.length;
+    console.log(array[size - 1]); // 마지막에 있는 배열 출력할 때 사용
+
+    for (var i = 0; i < array.length; i++) {
+        console.log(array[i]);
+    }
+
+    var donut = ['오리지널 도넛', '오리지널 도넛', '오리지널 도넛', '초코 도넛'];
+    var count = 0;
+    for (var k = 0; k < donut.length; k++) {
+        if (donut[k] == '오리지널 도넛') {
+            count++;
+        }
+    }
+
+    console.log("오리지널 도넛의 갯수는 %d입니다", count);
+
+    var cafe = ['스타벅스 선화점', '스타벅스 대흥점', '스타벅스 둔산점'];
+    for (i = 0; i < cafe.length; i++) {
+        if (cafe[i] == '스타벅스 대흥점') {
+            console.log("%d 번째에 있습니다.", i+1);
+            break;
+        }
+
+    }
+
+    var character = ['전사','전사','전사','마법사','마법사','도적','도적'];
+    var j = 0;
+    var m = 0;
+    var d = 0;
+    for(i=0;i<character.length;i++){
+        if(character[i]=='전사'){
+            j++;
+        }if(character[i]=='마법사'){
+            m++;
+        }if(character[i]=='도적'){
+            d++;
+        }
+    }
+    console.log('전사: %d 명 /n 마법사 : %d 명 /n 도적 : %d 명',j,m,d);
+    var num = [10,20];
+    var x = num[0];
+    var y = num[1];
+    var result = x + y;
+    console.log('배열의 합 = %d',result);
+
+    var num2 = [10,20,30];
+    result = num2[0]+num2[1]+num2[2];
+    console.log(result);
+    console.log('================');
+    
+    var sum = 0;
+    for(var i=0;i<num2.length;i++){
+        sum+=num2[i];
+    }
+    console.log(sum);
+</script>
+
+</html>
