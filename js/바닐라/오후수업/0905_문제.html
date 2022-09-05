@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0905 문제</title>
+</head>
+
+<body>
+</body>
+<script>
+
+    var star ='';
+    for (var i = 0; i <= 5; i++) {
+        for (var j = 4; j >= i; j--) {
+            // 방법 1. html 출력
+            document.write("*");
+            // 방법 2. console.log 출력
+            star += '*';
+        }
+        // 방법 1. html 출력
+        document.write("<br>");
+        // 방법 2. console.log 출력
+        console.log(star);
+        star = '';
+    }
+</script>
+
+</html>
