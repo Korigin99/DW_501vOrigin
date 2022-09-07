@@ -1,0 +1,83 @@
+/* item.css */
+*{margin: 0; padding: 0; text-decoration: none;}
+.mask{width: 100%; height: 100vh; display: flex; background: black;}
+
+.cen_left{width: 20%; height: 100%; display: flex; flex-direction: column;}
+.cen_rigth{width:78%; height: 93.8%; padding: 30px ;}
+
+
+/* 로고 영역과 박스 */
+.logo{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.logo img{
+    width: 80%;
+    height: 100%;
+}
+
+/* 좌측 메뉴 */
+.l_top{width: 100%; height: 30%;}
+.l_bottom{width: 100%; height: 70%;}
+/* 좌측 메뉴 상단 마이페이지 */
+.my_box{
+    width: 75%;
+    height: auto;
+    margin: 30px auto;
+    font-size: 20px;
+    font-weight: 700;
+    background: #e70012;
+    border-radius: 15px;
+    padding: 15px;
+    color: white;
+}
+.my_box div{text-align: center; cursor: pointer;}
+
+/* 좌측메뉴 아래 메뉴 박스 */
+.menu_box{
+    width: 80%;
+    height: auto;
+    margin: 30px auto;
+    font-size: 20px;
+    font-weight: 700;
+}
+/* 메뉴박스 안 구성 */
+.menu{
+    width: 100%; 
+    height: 50px; 
+    line-height: 50px;
+    text-align: center; 
+    margin-bottom: 10px; 
+    background: #e70012; 
+    border-radius: 15px;
+    color: white;
+    cursor: pointer;
+}
+.menu a{color: white;}
+
+/* 오른쪽 제품 이미지 컨텐츠 */
+.main{
+    width: 97%;
+    height: auto;
+    display: flex;
+    padding: 20px;
+    justify-content: space-around;
+}
+.it{
+    width: 300px;
+    flex-basis: 25%;
+    font-size: 20px;
+    font-weight: 600;
+    background: white;
+    border: 3px solid #e70012;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.item_img{width: 100%; height: 70%; border-bottom: 1px solid #e70012;}
+.item_memo{width: 96%; height: 18%;text-align: left; padding: 5px;}
+.item_eval{width: 96%; height: 8%; text-align: center; padding: 5px;}
+
+.item_img img{width: 100%; height: 100%;}

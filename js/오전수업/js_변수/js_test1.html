@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> js_test.html </title>
+</head>
+
+<body>
+
+</body>
+<script type="text/javascript">
+
+    var x = 10;
+    let kor = 90; // 중복선언 불가, 변수값 재할당 가능
+
+    const pi = 3.14; //변수 선언과 초기화를 동시에 진행, 중복 선언 불가, 변수 값 재할당 불가능(상수)
+
+
+    /* 문자열 -> 숫자
+        1. Number() 2.parseInt()
+    */
+    // var num = Number(prompt("숫자입력 : ")); 
+    // var num = parseInt(prompt("숫자입력 : ")); // 뒤에 입력한 문자열도 받아옴
+    // var num2 = 100;
+
+    // isNaN : true면 숫자 변환 불가, false면 숫자 변환가능
+
+    // document.write( num+10 );
+
+    // var korean = Number(prompt("국어 점수 입력 : "));
+    // var math = Number(prompt("수학 점수 입력 : "));
+    // var eng = Number(prompt("영어 점수 입력 : "));
+    // var his = Number(prompt("영어 점수 입력 : "));
+    // var sum = korean + math + eng + his;
+    // var avg = sum / 4;
+    // document.write('국어 : ' + korean + '점 <br>' + '수학 : ' + math + '점 <br>' + '영어 : ' + eng + '점 <br>' + '역사 : ' + his + '점 <br>' + '총점 : ' + sum + '점 평균 : ' + avg + '점');
+
+
+    // var score  = prompt("점수 입력 : ");
+    // score1 = score.split(' ');
+    // paresInt(score1);
+    // var sum1 = 0;
+    // for(var i =0; i<score1.length;i++){
+    //     sum1 += score1[i];
+    // }
+    // var avg1 = sum1 / score1.length;
+    // document.write('국어 : '+score1[0]+'점 <br>'+'수학 : '+score1[1]+'점 <br>'+'영어 : '+score1[2]+'점 <br>'+'역사 : '+score1[3]+'점 <br>'+'총점 : '+sum1+'점 평균 : '+avg1+'점');
+
+
+    var num1 = parseInt(prompt("숫자: "));
+    var num2 = parseInt(prompt("숫자: "));
+    var num3 = parseInt(prompt("숫자: "));
+
+    document.write(num1 > num2 && num1 > num3);
+
+
+
+
+
+</script>
+
+</html>

@@ -1,0 +1,133 @@
+/* main.css */
+*{margin: 0; padding: 0; text-decoration: none;}
+.mask{width: 100%; height: 100vh; background: black; color: white;}
+
+/* 위 배너 */
+.header{
+    width: 100%;
+    height: 25%;
+    display: flex;
+}
+
+/* 로고 영역과 박스 */
+.logo{
+    width: 20%;
+    height: 100%;
+    text-align: center;
+}
+
+.logo img{
+    width: 80%;
+    height: 100%;
+}
+
+/* 로고 이미지 영역 */
+.logo_img{
+    width: 80%;
+    height: 100%;
+    text-align: center;
+}
+
+.logo_img img{
+    width: 60%;
+    height: 65%;
+    margin-top: 40px;
+}
+
+/* 컨텐츠 영역 */
+.center{
+    width: 100%;
+    height: 75%;
+    display: flex;
+}
+
+/* 좌측 로그인 박스와 메뉴박스 */
+.cen_left{
+    width: 20%; /* 가로: 384*/
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* 로그인 박스 */
+.login_box{
+    width: 80%;
+    height: 30%;
+    margin: 30px auto;
+    font-size: 15px;
+    font-weight: 600;   
+}
+/* 로그인 박스 안 구성 */
+.box{width: 100%; height: auto; margin-bottom: 15px;}
+.id, .pw{width:100%; height: auto; display: flex;}
+.le{width: 25%; height: 30px;}
+.ri{width: 75%; height: 30px;}
+.ri input{width: 98%; height: 30px; border: 1px solid #e70012; border-radius: 5px;}
+.login{text-align: center;}
+.login input{width: 98%; height: 40px; background: #e70012; color: white; border: none; border-radius: 5px; cursor: pointer;}
+.join{display:flex;}
+.join_1{width: 30%; text-align: left;}
+.join_1 a{text-decoration: none; color: white;}
+.join_2{width: 70%; text-align: right; color: white;}
+
+/* 메뉴박스 */
+.menu_box{
+    width: 80%;
+    height: 70%;
+    margin: 30px auto;
+    font-size: 20px;
+    font-weight: 700;
+
+}
+/* 메뉴박스 안 구성 */
+.menu{
+    width: 100%; 
+    height: 50px; 
+    line-height: 50px;
+    text-align: center; 
+    margin-bottom: 10px; 
+    background: #e70012; 
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+.menu a{color: white;}
+
+/* 오른쪽 컨텐츠 영역 */
+
+/* 오른쪽 메인 컨텐츠 */
+.cen_rigth{
+    width: 80%; /* 가로: 836.5 */
+    height: 100%;
+}
+
+.slide{
+    overflow:hidden;
+    position:relative;
+    width: 1400px;
+    height: 700px;
+    margin: 0 auto;
+    border-radius: 10px;
+    border: 3px solid #e70012;
+}
+.main_img{
+    width: 11250px;
+    height: 100%;
+    display:flex;
+    /* flex-wrap:1400px; */
+    animation: bannermove 10s linear infinite;
+}
+.main_img img{
+    width: 1400px;
+    height: 700px;
+}
+
+@keyframes bannermove {
+    0%{
+        transform: translate(0,0);
+    }
+    100%{
+        transform: translate(-50%,0);
+    }
+}
