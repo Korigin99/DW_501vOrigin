@@ -13,14 +13,16 @@
 .cen_left{width: 20%; height: 100%; display: flex; flex-direction: column;}
 .cen_rigth{width:78%; height: 93.8%; padding: 30px ;}
 
-
-/* 로고 영역과 박스 */
-.logo{ width: 100%; height: 100%; text-align: center;}
-.logo img{max-width: 100%;}
-
 /* 좌측 메뉴 */
-.l_top{width: 100%; height: 30%;}
-.l_bottom{width: 100%; height: 70%;}
+.l_top{width: 100%; height: 20%;}
+
+.logo{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+.logo img{max-height: 100%;}
+.l_bottom{width: 100%; height: 80%;}
 /* 좌측 메뉴 상단 마이페이지 */
 .my_box{
     width: 75%;

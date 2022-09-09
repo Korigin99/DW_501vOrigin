@@ -1,6 +1,6 @@
 /* main.css */
 *{margin: 0; padding: 0; text-decoration: none;}
-.mask{width: 100%; height: auto; background: black; color: white;}
+.mask{width: 100%; height: auto; background: #000000; color: white;}
 
 .container{
     width: 1800px;
@@ -12,7 +12,7 @@
 /* 위 배너 */
 .header{
     width: 100%;
-    height: 25%;
+    height: 20%;
     display: flex;
 }
 
@@ -24,11 +24,10 @@
 }
 
 .logo img{
-    width: 80%;
-    height: 100%;
+    max-height: 100%;
 }
 
-/* 로고 이미지 영역 */
+/* 탑배너 영역 */
 .logo_img{
     width: 80%;
     height: 100%;
@@ -36,9 +35,9 @@
 }
 
 .logo_img img{
-    width: 60%;
-    height: 65%;
-    margin-top: 40px;
+    width:83%;
+    height: 90%;
+    
 }
 
 /* 컨텐츠 영역 */
