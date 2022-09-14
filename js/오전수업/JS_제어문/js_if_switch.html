@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+
+    //  가위바위보
+    /*  var user = parseInt(prompt("1.가위, 2.바위, 3.보"));
+     var com = Math.floor(Math.random() * 3) + 1; */
+
+    // 방법 1
+    /*  if (user == 1 && com == 3) {
+         document.write('유저 승' + com);
+     } else if (user == 3 && com == 1) {
+         document.write('유저 패' + com);
+     } else if (user > com) {
+         document.write('유저 승' + com);
+     } else if (user == com) {
+         document.write('무승부' + com);
+     } else {
+         document.write('유저 패' + com);
+     } */
+
+    // 방법 2
+    /*  if(user > com){
+         if(user == 3 && com == 1){
+             document.write('유저 패'+com);
+         }else{
+             document.write('유저 승'+com);
+         }
+     }else if(com > user){
+         if(user == 1 && com == 3){
+             document.write('유저 승'+com);
+         }else{
+             document.write('유저 패'+com);
+         }
+     }else{
+         document.write('무승부'+com);
+     } */
+
+    //주차요금 계산하기
+    /* var p_time = (prompt("주차 시간 입력 : ex) 0:30"));
+    var time1 = 1000;
+    var time2 = 1700;
+    var time4 = 2700;
+    var time8 = 5000;
+    var m_time = 100;
+    var pay = 0;
+    var time = p_time.split(':');
+    var hour = time[0];
+    var min = time [1];
+    hour = parseInt(hour * 60 / 10);
+    min = parseInt(min / 10);   
+    p_time = hour + min;
+    
+    if (p_time <= 3) {
+        pay = time1;
+    } else if (p_time < 12) {
+        pay = time1 + (p_time - 3) * m_time;
+    } else if(p_time < 24){
+        pay = time2 + (p_time - 12) * m_time;
+    }else if(p_time <48){
+        pay = time4 + (p_time - 24) * m_time;
+    }else{
+        pay = time8;
+    }
+    document.write('주차 요금 : '+pay+'원'); */
+
+
+    // 인적사항
+    /* var name = prompt("이름");
+    var addr = prompt("주소");
+    var email = prompt("이메일");
+    var job = prompt("직업");
+    var school;
+    if(job == '학생'){
+        school = prompt("재학중인 학교 이름");ㄲ
+    } */
+
+    // switch 문
+
+    /* var num = 10;
+    
+    switch(num){
+        case 5:
+            document.write("5를 선택했다.");
+            break;
+        case 11:
+            document.write("11을 선택했다.");
+            break;
+        case 25:
+            document.write("25를 선택했다.");
+            break;
+        case 10:
+            document.write("10을 선택했다.");
+            break;
+        default:
+            document.write("잘 못 선택했습니다.")
+    } */
+
+    var select = prompt("1.데이터 저장 2.데이터삭제 3.데이터추가 4.데이터수정 5.종료");
+    switch(select){
+        case 1:
+            break;
+        case 2:
+            break;
+        case 3:
+            break;
+        case 4:
+            break;
+        case 5:
+            break;
+        default:
+            document.write("메뉴를 다시 선택하세요.");
+    }
+</script>
+
+</html>
