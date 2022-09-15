@@ -107,7 +107,7 @@
             document.write("잘 못 선택했습니다.")
     } */
 
-    var select = prompt("1.데이터 저장 2.데이터삭제 3.데이터추가 4.데이터수정 5.종료");
+    /* var select = prompt("1.데이터 저장 2.데이터삭제 3.데이터추가 4.데이터수정 5.종료");
     switch(select){
         case 1:
             break;
@@ -121,6 +121,57 @@
             break;
         default:
             document.write("메뉴를 다시 선택하세요.");
+    } */
+
+    // 9월 15일 수업
+
+    /* var input = Math.floor(Math.random()*3)+1;
+
+    switch(input){
+        case 1:
+            document.write('가위');
+            break;
+        case 2:
+            document.write('바위');
+            break;
+        case 3:
+            document.write('보');
+            break;
+    }
+
+    var user = parseInt(prompt("1.가위 2.바위 3.보"));
+    var com = Math.floor(Math.random()*3)+1;
+
+    switch(user-com){
+        case -2:
+        case 1:
+            document.write("유저 승");
+            break;
+        case -1:
+        case 2:
+            document.write('컴퓨터 승');
+            break;
+        default:
+            document.write("무승부");
+    } */
+
+    var score = parseInt(prompt("점수 입력 : "));
+    score = parseInt(score / 10);
+
+
+    switch (score) {
+        case 10:
+        case 9:
+            document.write("A등급");
+            break;
+        case 8:
+            document.write("B등급");
+            break;
+        case 7:
+            document.write("C등급");
+            break;
+        default:
+            document.write("F등급");
     }
 </script>
 
