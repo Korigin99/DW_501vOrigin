@@ -38,6 +38,8 @@ public class 자바기초 {
 		
 		num2 = Integer.parseInt(num);
 		System.out.println("문자에서 숫자로 변환된 값은 : "+num2);
+		
+		
 	}
 
 }
