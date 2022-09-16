@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="game.css">
+<script>
+    
+</script>
+</head>
+<body onload="textChange()">
+    <div id="main_wrap">
+        <div class="rsp_wrap">
+            <div class="rsp_title">가위 바위 보!</div>
+            <div class="com_wrap">
+                <div id="result1"></div>
+                <div class="rsp_img" id="rspChange">✊</div>
+                <div id="result2"></div>
+            </div>
+            <div class="user_rsp">
+                <div class="rock">
+                    <button id="rock_bt" name="0" onclick="clicks(this)">✊</button>
+                </div>
+                <div class="scissors">
+                    <button id="scissors_bt" name="1" onclick="clicks(this)">✌</button>
+                </div>
+                <div class="paper">
+                    <button id="paper_bt" name="2" onclick="clicks(this)">🖐</button>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="dice_wrap">
+
+        </div>
+    </div>
+</body>
+<script>
+    var count = 0;
+    var rsp_text = document.getElementById("rspChange");
+    var result1 = document.getElementById("result1");
+    var result2 = document.getElementById("result2");
+    var animate;
+    function textChange(){
+        result1.innerHTML = "";
+        result2.innerHTML = "";
+        if(count == 0){
+            rsp_text.innerHTML = "✊";
+            count++;
+        }
+        else if(count == 1){
+            rsp_text.innerHTML = "✌";
+            count++;
+        }
+        else{
+            rsp_text.innerHTML = "🖐";
+            count = 0;
+        }
+        animate = setTimeout(textChange,100);
+    }
+    function clicks(rsp){
+        clearTimeout(animate);
+        var com = Math.floor(Math.random()*3)+1;
+        var user = rsp.id;
+        if(user == "rock_bt"){
+            if(com == 0){
+                rsp_text.innerHTML = "✊";
+                result1.innerHTML = "비겼다🤝";
+                result2.innerHTML = "비겼다🤝";
+            }
+            else if(com == 1){
+                rsp_text.innerHTML = "✌";
+                result1.innerHTML = "이겼다👍";
+                result2.innerHTML = "이겼다👍";
+            }
+            else{
+                rsp_text.innerHTML = "🖐";
+                result1.innerHTML = "😭졌다😭";
+                result2.innerHTML = "😭졌다😭";
+            }
+        }
+        if(user == "scissors_bt"){
+            if(com == 0){
+                rsp_text.innerHTML = "✊";
+                result1.innerHTML = "😭졌다😭";
+                result2.innerHTML = "😭졌다😭";
+            }
+            else if(com == 1){
+                rsp_text.innerHTML = "✌";
+                result1.innerHTML = "비겼다🤝";
+                result2.innerHTML = "비겼다🤝";
+            }
+            else{
+                rsp_text.innerHTML = "🖐";
+                result1.innerHTML = "이겼다👍";
+                result2.innerHTML = "이겼다👍";
+            }
+        }
+        if(user == "paper_bt"){
+            if(com == 0){
+                rsp_text.innerHTML = "✊";
+                result1.innerHTML = "이겼다👍";
+                result2.innerHTML = "이겼다👍";
+            }
+            else if(com == 1){
+                rsp_text.innerHTML = "✌";
+                result1.innerHTML = "😭졌다😭";
+                result2.innerHTML = "😭졌다😭";
+            }
+            else{
+                rsp_text.innerHTML = "🖐";
+                result1.innerHTML = "비겼다🤝";
+                result2.innerHTML = "비겼다🤝";
+            }
+        }
+        animate = setTimeout(textChange,1000);
+    }
+</script>
+</html>

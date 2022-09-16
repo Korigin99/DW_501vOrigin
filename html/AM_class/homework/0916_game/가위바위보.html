@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가위바위보</title>
+    <link rel="stylesheet" href="가위바위보.css">
+</head>
+
+<body>
+    <div id="mask">
+        <div class="display_wrap">
+            <div id="user">
+                <div class="img_box2">
+                    <img src="" alt="" id="u_img">
+                </div>
+            </div>
+            <div id="com">
+                <div class="img_box2">
+                    <img src="" alt="" id="c_img">
+                </div>
+            </div>
+        </div>
+        <div id="result">
+            <h1>가위바위보!</h1>
+        </div>
+        <div class="ctrl_wrap ">
+            <div class="scissors bt" onclick="sci_click()">
+                <div class="img_box">
+                    <img src="가위.png" alt="">
+                </div>
+            </div>
+            <div class="rock bt" onclick="rock_click()">
+                <div class="img_box">
+                    <img src="바위.png" alt="">
+                </div>
+            </div>
+            <div class="paper bt" onclick="paper_click()">
+                <div class="img_box">
+                    <img src="보.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    var c_out = document.getElementById("com");
+    var com = parseInt((Math.random() * 3) + 1);
+    var user_out = document.getElementById("u_img");
+    var com_out = document.getElementById("c_img");
+
+    function sci_click() {
+        var out = document.getElementById("result");
+        var user = 1;
+        var result = "";
+        if (user == 1 && com == 3) {
+            result = "WIN";
+            out.innerHTML = result;
+            com_out.src = "보.png"
+        } else if (user == com) {
+            result = "DRAW";
+            out.innerHTML = result;
+            com_out.src = "가위.png"
+        } else {
+            result = "DEFEAT"
+            out.innerHTML = result;
+            com_out.src = "바위.png"
+        }
+        user_out.src = "가위.png";
+    }
+
+    function rock_click() {
+        var out = document.getElementById("result");
+        var user = 2;
+        var result = "";
+        if (user > com) {
+            result = "WIN";
+            out.innerHTML = result;
+            com_out.src = "가위.png"
+        } else if (user == com) {
+            result = "DRAW";
+            out.innerHTML = result;
+            com_out.src = "바위.png"
+        } else {
+            result = "DEFEAT"
+            out.innerHTML = result;
+            com_out.src = "보.png"
+        }
+        user_out.src = "바위.png";
+    }
+
+    function paper_click() {
+        var out = document.getElementById("result");
+        var user = 3;
+        var result = "";
+        if (user == 3 && com == 1) {
+            result = "DEFEAT";
+            out.innerHTML = result;
+            com_out.src = "가위.png"
+        } else if (user == com) {
+            result = "DRAW";
+            out.innerHTML = result;
+            com_out.src = "보.png"
+        } else {
+            result = "WIN"
+            out.innerHTML = result;
+            com_out.src = "바위.png"
+        }
+        user_out.src = "보.png";
+    }
+</script>
+
+</html>

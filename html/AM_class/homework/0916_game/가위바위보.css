@@ -1,0 +1,97 @@
+body{padding: 0; margin: 0; box-sizing: border-box;}
+
+#mask{
+    margin: 150px auto;
+    width: 404px; 
+    height: auto; 
+    border: 3px solid lightseagreen;
+}
+
+.display_wrap{
+    width: 400px;
+    height: 150px;
+    display: flex;
+}
+#user{
+    width: 190px;
+    height: 140px;
+    border-right: 1px solid #efefef;
+    padding: 5px;
+    position: relative;
+}
+#com{
+    width: 190px;
+    height: 140px;
+    padding: 5px;
+    position: relative;
+}
+.ctrl_wrap{
+    width: 404px;
+    height: 100px;
+    display: flex;
+}
+.bt{
+    width: 123px;
+    height: 90px;
+    padding: 5px;
+}
+
+.scissors{
+
+}
+
+.rock{
+    border-right: 1px solid #efefef;
+    border-left: 1px solid #efefef;
+}
+
+.paper{
+}
+
+.res{
+    width: 100%;
+    height: 100%;
+}
+
+#result{
+    width: 100%;
+    height: 50px;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    line-height: 50px;
+    border-top: 1px solid #efefef;
+    border-bottom: 1px solid #efefef;
+}
+.bt img{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.bt:active {
+    border: 1px solid red;
+}
+
+#u_img{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#c_img{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.img_box{
+    width: 90px;
+    height: 90px;
+    margin: 0 auto;
+}
+.img_box2{
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}

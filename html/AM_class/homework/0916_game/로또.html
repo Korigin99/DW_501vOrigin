@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로또</title>
+    <link rel="stylesheet" href="로또.css">
+</head>
+
+<body>
+    <!-- 
+        3. 로또 
+    여섯개의 숫자를입력( 1~45 중복입력안됨)
+    로또 당첨번호는  랜덤함수로 여섯개 숫자를구하기
+    내가 입력한 숫자와 당첨번호와 비교하여
+    낙첨, 5등, 4등, 3등, 1등  여부 출력 하기 
+     -->
+    <div id="mask">
+        <div id="user">
+            <div class="u_n">
+                번호 입력 : <input type="text" id="user_num">
+            </div>
+        </div>
+        <div id="result">
+            <div class="title"><button onclick="doClick()">결과출력</button></div>
+            <div id="output">
+            </div>
+        </div>
+        <div id="result2">
+            <div id="lucky"></div>
+        </div>
+    </div>
+</body>
+<script>
+    var result_output = [5];
+    var out = document.getElementById('output');
+    var result = '';
+    var lucky = document.getElementById('lucky');
+
+    for (var i = 0; i < 6; i++) {
+        result_output[i] = parseInt(Math.random() * (45 - i) + 1);
+    }
+
+    for (var j = 0; j < result_output.length; j++) {
+        for (var k = 0; k < result_output.length - 1; k++) {
+            if (result_output[k] > result_output[k + 1]) {
+                temp = result_output[k + 1];
+                result_output[k + 1] = result_output[k];
+                result_output[k] = temp;
+            }
+        }
+    }
+
+    for (var i = 0; i < 6; i++) {
+        result += result_output[i];
+        if (i < 5) {
+            result += ', '
+        }
+    }
+    var count = 0;
+
+    function doClick() {
+        var user_num = document.getElementById('user_num').value;
+        var user_num2 = user_num.split(" ");
+        var ment = '';
+        for (var i = 0; i < user_num2.length; i++) {
+            for (var j = 0; j < result_output.length; j++) {
+                if (user_num2[i] == result_output[j]) {
+                    count++;
+                }
+            }
+        }
+        for (var j = 0; j < user_num2.length; j++) {
+            for (var k = 0; k < user_num2.length - 1; k++) {
+                if (user_num2[k] > user_num2[k + 1]) {
+                    temp = user_num2[k + 1];
+                    user_num2[k + 1] = user_num2[k];
+                    user_num2[k] = temp;
+                }
+            }
+        }
+        for (var i = 0; i < 6; i++) {
+            user_num += user_num2[i];
+            if (i < 5) {
+                user_num += ', '
+            }
+        }
+        if (count > 5) {
+            ment = "축하합니다. 1등입니다." + count + "개 맞춤";
+        } else if (count == 5) {
+            ment = "축하합니다. 3등입니다." + count + "개 맞춤";
+        } else if (count == 4) {
+            ment = "축하합니다. 4등입니다." + count + "개 맞춤";
+        } else if (count == 3) {
+            ment = "축하합니다. 5등입니다." + count + "개 맞춤";
+        } else if (count < 3) {
+            ment = "낙첨입니다." + count + "개 맞춤";
+        } else {
+            ment = "낙첨입니다.";
+        }
+        out.innerHTML = result;
+        lucky.innerHTML = ment + "<br>" + user_num;
+
+    }
+
+
+
+</script>
+
+</html>
