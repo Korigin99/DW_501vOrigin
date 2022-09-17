@@ -1,12 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="주사위.css">
 </head>
-<body>
+
+<body onload="showImage()">
+    <div id="mask">
+        <div id="display_wrap">
+            <div id="user_dp">
+                <div class="title" id="user_title">user</div>
+                <div class="img_box">
+                    <div id="user_dp1" class="dp_img"><img src="" id="user_img1"></div>
+                    <div id="user_dp2" class="dp_img"><img src="" id="user_img2"></div>
+                    <div id="user_dp3" class="dp_img"><img src="" id="user_img3"></div>
+                </div>
+            </div>
+            <div id="com_dp">
+                <div class="title" id="com_title">com</div>
+                <div class="img_box">
+                    <div id="com_dp1" class="dp_img"><img src="" id="com_img1"></div>
+                    <div id="com_dp2" class="dp_img"><img src="" id="com_img2"></div>
+                    <div id="com_dp3" class="dp_img"><img src="" id="com_img3"></div>
+                </div>
+            </div>
+        </div>
+        <div id="ment_wrap">승자는??</div>
+        <div id="ctrl_wrap">
+            <button onclick="doClick()" id="start">주사위 굴리기</button>
+            <button id="retry" onclick="reTry()">재시작</button>
+        </div>
+    </div>
     <!-- 
          2. 주사위 게임
      주사위 이미지 구하여 주사위 게임하기
@@ -16,5 +44,118 @@
       2) 1,1,1 이 나오면 어떤 주사위 값보다 가장큰값
       3)  3,3,3  두번째로 가장 큰값
      -->
+
 </body>
+<script>
+    var m_out = document.getElementById("ment_wrap");
+
+    var u_t = document.getElementById("user_title");
+    var c_t = document.getElementById("com_title");
+
+    var u_out1 = document.getElementById("user_img1");
+    var u_out2 = document.getElementById("user_img2");
+    var u_out3 = document.getElementById("user_img3");
+
+    var c_out1 = document.getElementById("com_img1");
+    var c_out2 = document.getElementById("com_img2");
+    var c_out3 = document.getElementById("com_img3");
+
+    var u_out = [u_out1, u_out2, u_out3];
+    var c_out = [c_out1, c_out2, c_out3];
+
+    var dice_img = ["dice1.png", "dice2.png", "dice3.png", "dice4.png", "dice5.png", "dice6.png"]
+    var result = '';
+
+    var flag;
+
+    function showImage() {
+        var d_imgNum = [Math.round(Math.random() * 5),Math.round(Math.random() * 5),Math.round(Math.random() * 5)];
+        for(var i=0; i<3;i++){
+            c_out[i].src = dice_img[d_imgNum[i]];
+            u_out[i].src = dice_img[d_imgNum[i]];
+        }
+        
+        flag = setTimeout(showImage,50);
+    }
+    function doClick() {
+        clearTimeout(flag);
+        var com_dice1 = Math.floor(Math.random() * 6) + 1
+        var com_dice2 = Math.floor(Math.random() * 6) + 1
+        var com_dice3 = Math.floor(Math.random() * 6) + 1
+        var com_dice = [com_dice1, com_dice2, com_dice3];
+        var com_sum = com_dice1 + com_dice2 + com_dice3;
+
+        var user_dice1 = Math.floor(Math.random() * 6) + 1
+        var user_dice2 = Math.floor(Math.random() * 6) + 1
+        var user_dice3 = Math.floor(Math.random() * 6) + 1
+        var user_dice = [user_dice1, user_dice2, user_dice3];
+        var user_sum = user_dice1 + user_dice2 + user_dice3;
+
+        u_t.innerHTML = "USER 총합 : " + user_sum;
+        c_t.innerHTML = "COM 총합 : " + com_sum;
+
+        // 컴퓨터 나온 주사위 값에 맞게 이미지 삽입
+        for (var j = 0; j < com_dice.length; j++) {
+            for (var i = 1; i <= 6; i++) {
+                if (com_dice[j] == i) {
+                    c_out[j].src = dice_img[i - 1];
+                }
+            }
+        }
+        // 유저 값 삽입
+        for (var j = 0; j < user_dice.length; j++) {
+            for (var i = 1; i <= 6; i++) {
+                if (user_dice[j] == i) {
+                    u_out[j].src = dice_img[i - 1];
+                }
+            }
+        }
+        /*테스트*/
+        /* user_dice1 = 2;
+        user_dice2 = 2;
+        user_dice3 = 2;
+        user_sum = user_dice1 + user_dice2 + user_dice3;
+
+        com_dice1 = 1;
+        com_dice2 = 1;
+        com_dice3 = 1;
+        com_sum = com_dice1 + com_dice2 + com_dice3; */
+
+        if (user_dice1 == user_dice2 == user_dice3 || com_dice1 == com_dice2 == com_dice3) {
+            if (user_sum == 3 || user_dice1 == 3) {
+                if (user_sum == com_sum) {
+                    result = "DRAW";
+                } else if (com_sum == 3) {
+                    result = "DEFEAT";
+                } else {
+                    result = "WIN";
+                }
+            }
+            if (com_sum == 3 || com_dice1 == 3) {
+                if (com_sum == user_sum) {
+                    result = "DRAW";
+                } else if (user_sum == 3) {
+                    result = "WIN";
+                } else {
+                    result = "DEFEAT";
+                }
+            }
+        }else{
+            if(user_sum>com_sum){
+                result = "WIN";
+            }else if(user_sum==com_sum){
+                result ="DRAW";
+            } else{
+                result = "DEFEAT";
+            }
+        }
+        
+        m_out.innerHTML = "게임 결과 : " + result + "<br>" + "USER : " + user_dice1 + " + " + user_dice2 + " + " + user_dice3 + " = " + user_sum + "&nbsp&nbsp&nbsp&nbsp" + "COM : " + com_dice1 + " + " + com_dice2 + " + " + com_dice3 + " = " + com_sum
+    }
+
+    function reTry(){
+        flag = setTimeout(showImage,50);
+    }
+</script>
+
 </html>
