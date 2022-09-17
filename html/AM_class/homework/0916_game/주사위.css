@@ -98,7 +98,7 @@ img{
     transform: translate(-50%,-50%);
 }
 
-button:active{
+#start:active{
     border: 1px solid #1EDF57;
     color: #1EDF57;
     background: white;
