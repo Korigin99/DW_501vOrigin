@@ -21,7 +21,7 @@
         </div>
         <div id="ment_wrap">
             <div id="ment">가위바위보!</div>
-            <div id="retry"><button id="start" onclick="start()">시작</button></div>
+            <div id="retry"><button id="start" onclick="start()">재시작</button></div>
         </div>
         <div id="ctrl_wrap">
             <div id="sci_bt" onclick="doClick(this)" class="bt">
@@ -103,6 +103,7 @@
     }
     function start(){
         flag = setTimeout(showImage,100);
+        m_out.innerHTML = "가위바위보!"
     }
 </script>
 
