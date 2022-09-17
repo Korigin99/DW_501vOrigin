@@ -35,6 +35,7 @@
             </div>
         </div>
     </div>
+    
 </body>
 <script>
     var u_out = document.getElementById("user_img");
@@ -48,10 +49,11 @@
     var flag;
 
     function showImage() {
-        var imgNum = Math.round(Math.random() * 2);
-        c_out.src = imgArray[imgNum];
-        u_out.src = imgArray[imgNum];
-        flag = setTimeout(showImage,100);
+        var c_imgNum = Math.round(Math.random() * 2);
+        var u_imgNum = Math.round(Math.random() * 2);
+        c_out.src = imgArray[c_imgNum];
+        u_out.src = imgArray[u_imgNum];
+        flag = setTimeout(showImage,50);
     }
 
     function doClick(ch) {
@@ -100,7 +102,7 @@
         }
     }
     function start(){
-        flag = flag = setTimeout(showImage,100);
+        flag = setTimeout(showImage,100);
     }
 </script>
 
