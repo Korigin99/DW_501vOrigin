@@ -32,15 +32,13 @@
         var l_num = [];
         var r_out = document.getElementById("result");
         var ip = document.getElementById("input_num");
-        var u_num = document.getElementById("input_num").value;
+        var u_num = ip.value;
         u_num = u_num.split(" ");
         var temp = 0;
         var r_num = '';
         var u_num2 = '';
         var result;
         var count = 0;
-        var u_num = document.getElementById("input_num").value;
-        u_num = u_num.split(" ");
 
         if (u_num.length != 6) {
             alert("로또 번호가 6개인지 확인 해주세요.");
@@ -112,7 +110,7 @@
                 // 추첨 결과 비교하기
                 for (var i = 0; i < 6; i++) {
                     for (var j = 0; j < 6; j++) {
-                        if (u_num[i] == l_num[j]) {
+                        if (u_num[i] == l_num[j]) {  
                             count++;
                         }
                     }
