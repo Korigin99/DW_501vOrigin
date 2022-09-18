@@ -32,7 +32,7 @@
         <div id="ment_wrap">승자는??</div>
         <div id="ctrl_wrap">
             <button onclick="doClick()" id="start">주사위 굴리기</button>
-            <button id="retry" onclick="reTry()">재시작</button>
+            <button id="retry" onclick="reTry()">시작</button>
         </div>
     </div>
     <!-- 
@@ -67,97 +67,106 @@
     var result = '';
 
     var flag;
-
+    var flag2 = 0;
     function showImage() {
-        var d_imgNum = [Math.round(Math.random() * 5),Math.round(Math.random() * 5),Math.round(Math.random() * 5)];
-        for(var i=0; i<3;i++){
+        if(flag2 == 1){
+            var d_imgNum = [Math.round(Math.random() * 5), Math.round(Math.random() * 5), Math.round(Math.random() * 5)];
+        for (var i = 0; i < 3; i++) {
             c_out[i].src = dice_img[d_imgNum[i]];
             u_out[i].src = dice_img[d_imgNum[i]];
         }
-        
-        flag = setTimeout(showImage,50);
+        flag = setTimeout(showImage, 50);
+        }
     }
     function doClick() {
-        clearTimeout(flag);
-        var com_dice1 = Math.floor(Math.random() * 6) + 1
-        var com_dice2 = Math.floor(Math.random() * 6) + 1
-        var com_dice3 = Math.floor(Math.random() * 6) + 1
-        var com_dice = [com_dice1, com_dice2, com_dice3];
-        var com_sum = com_dice1 + com_dice2 + com_dice3;
+        if (flag2 == 1) {
+            clearTimeout(flag);
+            var com_dice1 = Math.floor(Math.random() * 6) + 1
+            var com_dice2 = Math.floor(Math.random() * 6) + 1
+            var com_dice3 = Math.floor(Math.random() * 6) + 1
+            var com_dice = [com_dice1, com_dice2, com_dice3];
+            var com_sum = com_dice1 + com_dice2 + com_dice3;
 
-        var user_dice1 = Math.floor(Math.random() * 6) + 1
-        var user_dice2 = Math.floor(Math.random() * 6) + 1
-        var user_dice3 = Math.floor(Math.random() * 6) + 1
-        var user_dice = [user_dice1, user_dice2, user_dice3];
-        var user_sum = user_dice1 + user_dice2 + user_dice3;
+            var user_dice1 = Math.floor(Math.random() * 6) + 1
+            var user_dice2 = Math.floor(Math.random() * 6) + 1
+            var user_dice3 = Math.floor(Math.random() * 6) + 1
+            var user_dice = [user_dice1, user_dice2, user_dice3];
+            var user_sum = user_dice1 + user_dice2 + user_dice3;
 
-        u_t.innerHTML = "USER 총합 : " + user_sum;
-        c_t.innerHTML = "COM 총합 : " + com_sum;
+            u_t.innerHTML = "USER 총합 : " + user_sum;
+            c_t.innerHTML = "COM 총합 : " + com_sum;
 
-        // 컴퓨터 나온 주사위 값에 맞게 이미지 삽입
-        for (var j = 0; j < com_dice.length; j++) {
-            for (var i = 1; i <= 6; i++) {
-                if (com_dice[j] == i) {
-                    c_out[j].src = dice_img[i - 1];
+            // 컴퓨터 나온 주사위 값에 맞게 이미지 삽입
+            for (var j = 0; j < com_dice.length; j++) {
+                for (var i = 1; i <= 6; i++) {
+                    if (com_dice[j] == i) {
+                        c_out[j].src = dice_img[i - 1];
+                    }
                 }
             }
-        }
-        // 유저 값 삽입
-        for (var j = 0; j < user_dice.length; j++) {
-            for (var i = 1; i <= 6; i++) {
-                if (user_dice[j] == i) {
-                    u_out[j].src = dice_img[i - 1];
+            // 유저 값 삽입
+            for (var j = 0; j < user_dice.length; j++) {
+                for (var i = 1; i <= 6; i++) {
+                    if (user_dice[j] == i) {
+                        u_out[j].src = dice_img[i - 1];
+                    }
                 }
             }
-        }
-        /*테스트*/
-        /* user_dice1 = 2;
-        user_dice2 = 2;
-        user_dice3 = 2;
-        user_sum = user_dice1 + user_dice2 + user_dice3;
+            /*테스트*/
+            /* user_dice1 = 2;
+            user_dice2 = 2;
+            user_dice3 = 2;
+            user_sum = user_dice1 + user_dice2 + user_dice3;
+    
+            com_dice1 = 1;
+            com_dice2 = 1;
+            com_dice3 = 1;
+            com_sum = com_dice1 + com_dice2 + com_dice3; */
 
-        com_dice1 = 1;
-        com_dice2 = 1;
-        com_dice3 = 1;
-        com_sum = com_dice1 + com_dice2 + com_dice3; */
-
-        if (user_dice1 == user_dice2 == user_dice3 || com_dice1 == com_dice2 == com_dice3) {
-            if (user_sum == 3 || user_dice1 == 3) {
-                if (user_sum == com_sum) {
-                    result = "DRAW";
-                } else if (com_sum == 3) {
-                    result = "DEFEAT";
-                } else {
+            if (user_dice1 == user_dice2 == user_dice3 || com_dice1 == com_dice2 == com_dice3) {
+                if (user_sum == 3 || user_dice1 == 3) {
+                    if (user_sum == com_sum) {
+                        result = "DRAW";
+                    } else if (com_sum == 3) {
+                        result = "DEFEAT";
+                    } else {
+                        result = "WIN";
+                    }
+                }
+                if (com_sum == 3 || com_dice1 == 3) {
+                    if (com_sum == user_sum) {
+                        result = "DRAW";
+                    } else if (user_sum == 3) {
+                        result = "WIN";
+                    } else {
+                        result = "DEFEAT";
+                    }
+                }
+            } else {
+                if (user_sum > com_sum) {
                     result = "WIN";
-                }
-            }
-            if (com_sum == 3 || com_dice1 == 3) {
-                if (com_sum == user_sum) {
+                } else if (user_sum == com_sum) {
                     result = "DRAW";
-                } else if (user_sum == 3) {
-                    result = "WIN";
                 } else {
                     result = "DEFEAT";
                 }
             }
+            flag2 = 0;
+            m_out.innerHTML = "게임 결과 : " + result + "<br>" + "USER : " + user_dice1 + " + " + user_dice2 + " + " + user_dice3 + " = " + user_sum + "&nbsp&nbsp&nbsp&nbsp" + "COM : " + com_dice1 + " + " + com_dice2 + " + " + com_dice3 + " = " + com_sum
         }else{
-            if(user_sum>com_sum){
-                result = "WIN";
-            }else if(user_sum==com_sum){
-                result ="DRAW";
-            } else{
-                result = "DEFEAT";
-            }
+            alert("시작버튼을 눌러주세요!");
+            return false;
         }
-        
-        m_out.innerHTML = "게임 결과 : " + result + "<br>" + "USER : " + user_dice1 + " + " + user_dice2 + " + " + user_dice3 + " = " + user_sum + "&nbsp&nbsp&nbsp&nbsp" + "COM : " + com_dice1 + " + " + com_dice2 + " + " + com_dice3 + " = " + com_sum
+
     }
 
-    function reTry(){
+    function reTry() {
         clearTimeout(flag);
-        flag = setTimeout(showImage,50);
+        flag2 = 1;
+        flag = setTimeout(showImage, 50);
         result = "승자는???"
         m_out.innerHTML = result;
+
     }
 </script>
 
