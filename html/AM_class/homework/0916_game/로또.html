@@ -1,162 +1,123 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>로또</title>
+    <title>로또2</title>
     <link rel="stylesheet" href="로또.css">
 </head>
-
 <body>
     <div id="mask">
-        <div id="user_num">
-            로또 번호 입력 : <input type="text" id="input_num">
+        <div id="user_ipt">
+            로또 번호 입력 : <input type="text" id="u_input">
         </div>
-        <div id="lotto_num">
-            <button onclick="raf_start()">로또 번호 출력</button>
+        <div id="bt_box">
+            <button id="start_bt" onclick="raffle()">로또 추첨 하기</button>
         </div>
-        <div id="result"></div>
+        <div id="result_display">
+            <div id="ranking_dp" class="r_dp"></div>
+            <div id="lotto_dp" class="r_dp"></div>
+            <div id="user_dp" class="r_dp"></div>
+        </div>
     </div>
-    <!-- 
-        3. 로또 
-    여섯개의 숫자를입력( 1~45 중복입력안됨)
-    로또 당첨번호는  랜덤함수로 여섯개 숫자를구하기
-    내가 입력한 숫자와 당첨번호와 비교하여
-    낙첨, 5등, 4등, 3등, 1등  여부 출력 하기 
-     -->
 </body>
 <script>
-    function raf_start() {
-        var l_num = [];
-        var r_out = document.getElementById("result");
-        var ip = document.getElementById("input_num");
-        var u_num = ip.value;
-        u_num = u_num.split(" ");
-        var temp = 0;
-        var r_num = '';
-        var u_num2 = '';
-        var result;
-        var count = 0;
+    function raffle(){
+        // 출력
+        var r_out = document.getElementById("ranking_dp");
+        var l_out = document.getElementById("lotto_dp");
+        var u_out = document.getElementById("user_dp");
 
-        if (u_num.length != 6) {
-            alert("로또 번호가 6개인지 확인 해주세요.");
-            ip.focus();
-            return flase;
+        // 유저 로또 번호 받아오기 와서 중복, 자리, 범위 검사
+        var user_input = document.getElementById("u_input");
+        var user_input_num = user_input.value;
+        user_input_num = user_input_num.split(" ");
+        var user_num =[]
+        for(var i=0; i<user_input_num.length;i++){
+            user_num[i] = user_input_num[i];
         }
-        for (var i = 0; i < u_num.length; i++) {
-            if (u_num[i] < 1 || u_num[i] > 45) {
+        // 입력한 숫자 개수 검사
+        if(user_num.length!=6){
+            alert("로또 번호가 6개인지 확인 해주세요.");
+            user_input.focus();
+            return false;
+        }
+        // 범위 검사
+        for (var i = 0; i < user_num.length; i++) {
+            if (user_num[i] < 1 || user_num[i] > 45) {
                 alert("입력하신 번호가 범위 내인지 확인 하세요");
-                ip.focus();
+                user_input.focus();
                 return false;
             }
         }
-        // 로또 추첨 시작
-        for (var i = 0; i < u_num.length; i++) {
-            if (u_num.length == 6) {
-                //입력 값 중복 확인
-                for (var i = 0; i < u_num.length; i++) {
-                    for (var j = 0; j < u_num.length - 1; j++) {
-                        if (i != j) {
-                            if (u_num[i] == u_num[j]) {
-                                alert("로또 번호가 중복 입력 됐습니다.");
-                                ip.focus();
-                                return flase;
-                            }
-                        }
+        // 중복 입력 검사
+        for(var i=0; i<user_num.length; i++){
+            for(var j=0; j<user_num.length; j++){
+                if(i!=j){
+                    if(user_num[i] == user_num[j]){
+                        alert("숫자를 중복 입력 했습니다. 다시 확인 하세요.");
+                        user_input.focus();
+                        return false;
                     }
                 }
-                i = 0
-                // 로또 번호 6개 추출
-                while (i < 6) {
-                    var n = Math.floor(Math.random() * 45) + 1;
-                    if (!sameNum(n)) {
-                        l_num.push(n);
-                        i++;
-                    }
-                }
-
-                /* 테스트 */
-            /*  l_num[0] = 1;
-                l_num[1] = 45;
-                l_num[2] = 2;
-                l_num[3] = 23;
-                l_num[4] = 13;
-                l_num[5] = 44;  */
-
-                // 오름차순으로 로또 결과 번호 정렬
-                for (var i = 0; i < l_num.length; i++) {
-                    for (var j = 0; j < l_num.length - 1; j++) {
-                        if (l_num[j] > l_num[j + 1]) {
-                            temp = l_num[j];
-                            l_num[j] = l_num[j + 1];
-                            l_num[j + 1] = temp;
-                        }
-                    }
-                }
-
-                temp = 0;
-                // 입력한 로또 번호 오름차순
-                for (var i = 0; i < u_num.length; i++) {
-                    for (var j = 0; j < u_num.length - 1; j++) {
-                        if (u_num[j] > u_num[j + 1]) {
-                            temp = u_num[j];
-                            u_num[j] = u_num[j + 1];
-                            u_num[j + 1] = temp;
-                        }
-                    }
-                }
-                // 추첨 결과 비교하기
-                for (var i = 0; i < 6; i++) {
-                    for (var j = 0; j < 6; j++) {
-                        if (u_num[i] == l_num[j]) {  
-                            count++;
-                        }
-                    }
-                }
-                // 로또 번호 사이에 쉼표 넣어주기
-                for (var i = 0; i < l_num.length; i++) {
-                    r_num += l_num[i];
-                    if (i < 5) {
-                        r_num += ", "
-                    }
-                }
-                for (var i = 0; i < u_num.length; i++) {
-                    u_num2 += u_num[i];
-                    if (i < 5) {
-                        u_num2 += ", "
-                    }
-                }
-                // 당첨 카운팅
-                if (count > 5) {
-                    result = "축하합니다. 1등입니다." + count + "개 맞춤";
-                } else if (count == 5) {
-                    result = "축하합니다. 3등입니다." + count + "개 맞춤";
-                } else if (count == 4) {
-                    result = "축하합니다. 4등입니다." + count + "개 맞춤";
-                } else if (count == 3) {
-                    result = "축하합니다. 5등입니다." + count + "개 맞춤";
-                } else if (count < 3) {
-                    result = "낙첨입니다." + count + "개 맞춤";
-                } else {
-                    result = "하나도 못 맞췄습니다. 낙첨입니다.";
-                }
-
-                r_out.innerHTML = "추첨 결과 : " + r_num + "<br>" + "입력 번호 : " + u_num2 + "<br> 당첨 결과 : " + result;
             }
         }
 
-        // 중복 제거 함수
-        function sameNum(n) {
-            for (var i = 0; i < l_num.length; i++) {
-                if (n === l_num[i]) {
-                    return true;
+        // 오름차순 정렬
+        user_num.sort((a, b) => a - b);
+        // 확인
+        console.log(user_num);
+
+        // 로또 번호 배열 생성 후 랜덤 값 삽입 및 중복 제거
+        var lotto_num = [];
+        while(lotto_num.length<6){
+            var n = parseInt(Math.random()*45)+1;
+            if(lotto_num.indexOf(n)<0){
+                lotto_num.push(n);
+            }
+        }
+        // 로또 번호 오름차순 정렬
+        lotto_num.sort((a, b) => a - b);
+        // 로또 번호 사이 쉼표 넣기
+        // var lotto_n = "";
+        // for(var i=0; i<lotto_num.lengt;i++){
+        //     if(i<5){
+        //         lotto_n = lotto_num[i]+ ", ";
+        //     }
+        // }
+        // 확인
+        console.log(lotto_num);
+
+        // 당첨된 번호를 색 변경
+
+        //당첨 비교
+        var count = 0;
+        for(var i=0; i<6; i++){
+            for(var j=0; j<6; j++){
+                if(user_num[i]==lotto_num[j]){
+                    count++;
+                    // user_num[i].fillStyle = "red";
                 }
-            } return false;
-        } return l_num;
+            }
+        }
+
+        // 당첨 확인 및 결과 출력
+        var res = "";
+        if(count == 6){
+            res = "축하합니다. 1등입니다. "+count+"개 일치";
+        }else if(count==5){
+            res = "축하합니다. 3등입니다. "+count+"개 일치";
+        }else if(count ==4){
+            res = "축하합니다. 4등입니다. "+count+"개 일치";
+        }else if(count ==3){
+            res = "축하합니다. 5등입니다. "+count+"개 일치";
+        }else{
+            res = "낙첨입니다. "+count+"개 일치";
+        }
+        r_out.innerHTML = "추첨 결과 : "+res;
+        l_out.innerHTML = "당첨번호 : "+lotto_num;
+        u_out.innerHTML = "입력 번호 : "+user_num;
     }
-
 </script>
-
 </html>
