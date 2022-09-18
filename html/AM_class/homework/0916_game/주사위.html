@@ -154,6 +154,7 @@
     }
 
     function reTry(){
+        clearTimeout(flag);
         flag = setTimeout(showImage,50);
         result = "승자는???"
         m_out.innerHTML = result;
