@@ -64,6 +64,7 @@ body{
 #ctrl_wrap{
     width: 590px;
     height: 150px;
+    padding: 5px;
     position: relative;
 }
 #start{
@@ -74,8 +75,8 @@ body{
     font-weight: 800;
     position: absolute;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+    right: 20%;
+    transform: translate(-20%,-50%);
     cursor: pointer;
     border: none;
     background: #6040ec;
@@ -106,12 +107,19 @@ img{
 }
 
 #retry{
-    background: white;
-    border: 1px solid #1EDF57;
+    width: 90px;
+    height: 90px;
+    border-radius: 100%;
+    font-size: 20px;
+    font-weight: 800;
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    transform: translate(-20%,-50%);
     cursor: pointer;
-}
-
-#retry:active{
-    background: #1EDF57;
+    border: none;
+    background: #6040ec;
     color: white;
+    box-shadow: 3px 3px 3px #6f6f6f;
+    text-shadow: 1px 1px 1px #6f6f6f;
 }
