@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>로또2</title>
+    <title>로또</title>
     <link rel="stylesheet" href="로또.css">
 </head>
 <body>
@@ -21,27 +21,6 @@
             <div id="user_dp" class="r_dp"></div>
         </div>
     </div>
-    <div id="mask">
-        <div id="user_ipt">
-            로또 번호 입력 : <input type="text" id="u_input">
-        </div>
-        <div id="bt_box">
-            <button id="start_bt" onclick="raffle()">로또 추첨 하기</button>
-        </div>
-        <div id="result_display">
-            <div id="ranking_dp" class="r_dp">
-            </div>
-            <div id="lotto_dp2" class="r_dp">
-                <div id="lotto_number1" class="l_num"></div>
-                <div id="lotto_number2" class="l_num"></div>
-                <div id="lotto_number3" class="l_num"></div>
-                <div id="lotto_number4" class="l_num"></div>
-                <div id="lotto_number5" class="l_num"></div>
-                <div id="lotto_number6" class="l_num"></div>
-            </div>
-            <div id="user_dp" class="r_dp"></div>
-        </div>
-    </div>
 </body>
 <script>
     function raffle(){
@@ -49,15 +28,17 @@
         var r_out = document.getElementById("ranking_dp");
         var l_out = document.getElementById("lotto_dp");
         var u_out = document.getElementById("user_dp");
-
+        
         // 유저 로또 번호 받아오기 와서 중복, 자리, 범위 검사
         var user_input = document.getElementById("u_input");
         var user_input_num = user_input.value;
         user_input_num = user_input_num.split(" ");
         var user_num =[]
-        for(var i=0; i<user_input_num.length;i++){
-            user_num[i] = user_input_num[i];
+        
+        for(var i=0; i<user_input_num.length;i++){           
+            user_num[i] = parseInt(user_input_num[i]);
         }
+        
         // 입력한 숫자 개수 검사
         if(user_num.length!=6){
             alert("로또 번호가 6개인지 확인 해주세요.");
@@ -112,13 +93,13 @@
             for(var j=0; j<6; j++){
                 if(user_num[i]==lotto_num[j]){
                     count++;
-                    // user_num[i].fillStyle = "red";
+                    
                 }
             }
         }
-
+        
         // 공 색깔
-
+    
         // 당첨 확인 및 결과 출력
         var res = "";
         if(count == 6){
