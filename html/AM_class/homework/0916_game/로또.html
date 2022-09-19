@@ -21,6 +21,27 @@
             <div id="user_dp" class="r_dp"></div>
         </div>
     </div>
+    <div id="mask">
+        <div id="user_ipt">
+            로또 번호 입력 : <input type="text" id="u_input">
+        </div>
+        <div id="bt_box">
+            <button id="start_bt" onclick="raffle()">로또 추첨 하기</button>
+        </div>
+        <div id="result_display">
+            <div id="ranking_dp" class="r_dp">
+            </div>
+            <div id="lotto_dp2" class="r_dp">
+                <div id="lotto_number1" class="l_num"></div>
+                <div id="lotto_number2" class="l_num"></div>
+                <div id="lotto_number3" class="l_num"></div>
+                <div id="lotto_number4" class="l_num"></div>
+                <div id="lotto_number5" class="l_num"></div>
+                <div id="lotto_number6" class="l_num"></div>
+            </div>
+            <div id="user_dp" class="r_dp"></div>
+        </div>
+    </div>
 </body>
 <script>
     function raffle(){
@@ -79,13 +100,7 @@
         }
         // 로또 번호 오름차순 정렬
         lotto_num.sort((a, b) => a - b);
-        // 로또 번호 사이 쉼표 넣기
-        // var lotto_n = "";
-        // for(var i=0; i<lotto_num.lengt;i++){
-        //     if(i<5){
-        //         lotto_n = lotto_num[i]+ ", ";
-        //     }
-        // }
+    
         // 확인
         console.log(lotto_num);
 
@@ -102,6 +117,8 @@
             }
         }
 
+        // 공 색깔
+
         // 당첨 확인 및 결과 출력
         var res = "";
         if(count == 6){
@@ -115,6 +132,7 @@
         }else{
             res = "낙첨입니다. "+count+"개 일치";
         }
+
         r_out.innerHTML = "추첨 결과 : "+res;
         l_out.innerHTML = "당첨번호 : "+lotto_num;
         u_out.innerHTML = "입력 번호 : "+user_num;

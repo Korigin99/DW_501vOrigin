@@ -75,3 +75,17 @@ body{
     padding: 5px;
     text-align: center;
 }
+
+
+#lotto_dp2{
+    display: flex;
+    height: 96px;
+}
+
+.l_num{
+    width: 92px;
+    margin: 2px;
+    height: 92px;
+    border-radius: 50%;
+    background: blue;
+}
