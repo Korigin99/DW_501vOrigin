@@ -12,7 +12,7 @@
 <body>
     <div id="mask">
         <div id="user_ipt">
-            로또 번호 입력 : <input type="text" id="u_input">
+            로또 번호 입력 : <input type="text" id="u_input" onkeydown="enter()">
         </div>
         <div id="bt_box">
             <button id="start_bt" onclick="raffle()">로또 추첨 하기</button>
@@ -107,19 +107,49 @@
         // 당첨된 번호를 색 변경
 
         //당첨 비교
+
+        for (var i = 0; i < 6; i++) {
+            if ((lotto_num[i] <= 10)) {
+                ln_out[i].style.background = "#FF0000";
+            } else if ((lotto_num[i] <= 20)) {
+                ln_out[i].style.background = "#FF5E00";
+            } else if ((lotto_num[i] <= 30)) {
+                ln_out[i].style.background = "#FFBB00";
+            } else if ((lotto_num[i] <= 40)) {
+                ln_out[i].style.background = "#FFE400";
+            } else {
+                ln_out[i].style.background = "#ABF200";
+            }
+            ln_out[i].style.color = "white";
+            ln_out[i].style.border = "2px solid black";
+        }
+        for (var i = 0; i < 6; i++) {
+            if ((user_num[i] <= 10)) {
+                ln_out[i + 6].style.background = "#FF0000";
+            } else if ((user_num[i] <= 20)) {
+                ln_out[i + 6].style.background = "#FF5E00";
+            } else if ((user_num[i] <= 30)) {
+                ln_out[i + 6].style.background = "#FFBB00";
+            } else if ((user_num[i] <= 40)) {
+                ln_out[i + 6].style.background = "#FFE400";
+            } else {
+                ln_out[i + 6].style.background = "#ABF200";
+            }
+            ln_out[i + 6].style.color = "white";
+            ln_out[i + 6].style.border = "2px solid black";
+        }
+
         var count = 0;
         for (var i = 0; i < 6; i++) {
             for (var j = 0; j < 6; j++) {
                 if (user_num[i] == lotto_num[j]) {
                     count++;
+                    ln_out[i+6].style.color = "blue";
                 }
             }
         }
         console.log(count);
 
-        
-        ball_color(lotto_num, user_num, ln_out);
-        
         // 당첨 확인 및 결과 출력
         var res = "";
         if (count == 6) {
@@ -146,40 +176,13 @@
             }
         }
 
-        // 공 색깔
-        function ball_color(name1,name2, out) {
-            for (var i = 0; i < 6; i++) {
-                if ((name1[i] >= 1 && name1[i] <= 10)) {
-                    out[i].style.background = "yellow";
-                } else if ((name1[i] >= 11 && name1[i] <= 20)) {
-                    out[i].style.background = "blue";
-                } else if ((name1[i] >= 21 && name1[i] <= 30)) {
-                    out[i].style.background = "red";
-                } else if ((name1[i] >= 31 && name1[i] <= 40)) {
-                    out[i].style.background = "gray";
-                } else {
-                    out[i].style.background = "green";
-                }
-                out[i].style.color = "white";
-            }
-            for (var i = 0; i < 6; i++) {
-                if ((name2[i] >= 1 && name2[i] <= 10)) {
-                    out[i + 6].style.background = "yellow";
-                } else if ((name2[i] >= 11 && name2[i] <= 20)) {
-                    out[i + 6].style.background = "blue";
-                } else if ((name2[i] >= 21 && name2[i] <= 30)) {
-                    out[i + 6].style.background = "red";
-                } else if ((name2[i] >= 31 && name2[i] <= 40)) {
-                    out[i + 6].style.background = "gray";
-                } else {
-                    out[i + 6].style.background = "green";
-                }
-                out[i + 6].style.color = "white";
-            }
-        }
     }
 
-
+    function enter(){
+        if(window.event.keyCode == 13){
+            raffle();
+        }
+    }
 </script>
 
 </html>
