@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body,ul,li{margin: 0; padding: 0; box-sizing: border-box;}
+        .mask{
+            width: 1200px;
+            height: auto;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+        }
+        .title{
+            width: 100%;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: 800;
+        }
+        .menu_wrap{
+            width: auto;
+            height: 440px;
+            display: flex;
+            justify-content: space-around;
+        }
+        .menu_box{
+            display: flex;
+            flex-direction: column;
+            width: 200px;
+            height: 400px;
+            padding: 20px;
+            text-align: center;
+            background: black;
+            color: white;
+            border-radius: 15px;
+        }
+
+        .menu_title{
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            font-size: 15px;
+            font-weight: 600;
+            font-family: "굴림";
+        }
+        .menu_price{
+            width: 100%;
+            height: 40px;
+            margin: 20px 0;
+        }
+
+        .menu_text{
+            width: 80%;
+            height: 200px;
+            margin-top: 20px;
+            padding: 5px 20px;
+        }
+
+        span{
+            font-size: 30px;
+        }
+        .menu_text ul{
+            text-align: left;
+        }
+    
+        .menu_text ul li{
+            font-size: 12px;
+            margin: 10px 0;
+            
+        }
+        .bt_box{
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+        }
+        .bt_box button{
+            width: 120px;
+            height: 40px;
+            background: black;
+            color: white;
+            border: 1px solid red;
+            border-radius: 10px;
+        }
+        .bt_box button:hover{
+            transition: 2s;
+            background: red;
+            border: 1px solid red;
+            color: white;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="mask">
+        <div class="title">Choose your plan</div>
+        <div class="menu_wrap">
+            <div class="menu_box">
+                <div class="menu_title">Starter 뀨^---^뀨</div>
+                <div class="menu_price"><span>19$</span> /month</div>
+                <div class="menu_text">
+                    <ul>
+                        <li>1 Webstie</li>
+                        <li>10 GB Disk Space</li>
+                        <li>Free Email Address</li>
+                        <li>Basic Web builder</li>
+                        <li>No SSl Certificate</li>
+                        <li>Limited Support</li>
+                    </ul>
+                </div>
+                <div class="bt_box"><button>Add to Cart</button></div>
+            </div>
+            <div class="menu_box">
+                <div class="menu_title">Starter 퓨ㅠ---ㅠ퓨</div>
+                <div class="menu_price"><span>19$</span> /month</div>
+                <div class="menu_text">
+                    <ul>
+                        <li>1 Webstie</li>
+                        <li>10 GB Disk Space</li>
+                        <li>Free Email Address</li>
+                        <li>Basic Web builder</li>
+                        <li>No SSl Certificate</li>
+                        <li>Limited Support</li>
+                    </ul>
+                </div>
+                <div class="bt_box"><button>Add to Cart</button></div>
+            </div>
+            <div class="menu_box">
+                <div class="menu_title">Starter쓔^---^쓔</div>
+                <div class="menu_price"><span>19$</span> /month</div>
+                <div class="menu_text">
+                    <ul>
+                        <li>1 Webstie</li>
+                        <li>10 GB Disk Space</li>
+                        <li>Free Email Address</li>
+                        <li>Basic Web builder</li>
+                        <li>No SSl Certificate</li>
+                        <li>Limited Support</li>
+                    </ul>
+                </div>
+                <div class="bt_box"><button>Add to Cart</button></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
