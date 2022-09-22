@@ -35,34 +35,19 @@
             <button id="retry" onclick="reTry()">시작</button>
         </div>
     </div>
-    <!-- 
-         2. 주사위 게임
-     주사위 이미지 구하여 주사위 게임하기
-     주사위는 3개 ,  
-     주사위 게임 승리 조건
-      1) 합이 크면 승리
-      2) 1,1,1 이 나오면 어떤 주사위 값보다 가장큰값
-      3)  3,3,3  두번째로 가장 큰값
-     -->
-
 </body>
 <script>
     var m_out = document.getElementById("ment_wrap");
-
     var u_t = document.getElementById("user_title");
     var c_t = document.getElementById("com_title");
-
     var u_out1 = document.getElementById("user_img1");
     var u_out2 = document.getElementById("user_img2");
     var u_out3 = document.getElementById("user_img3");
-
     var c_out1 = document.getElementById("com_img1");
     var c_out2 = document.getElementById("com_img2");
     var c_out3 = document.getElementById("com_img3");
-
     var u_out = [u_out1, u_out2, u_out3];
     var c_out = [c_out1, c_out2, c_out3];
-
     var dice_img = ["dice1.png", "dice2.png", "dice3.png", "dice4.png", "dice5.png", "dice6.png"];
     var result = '';
     var try_bt = document.getElementById("retry");

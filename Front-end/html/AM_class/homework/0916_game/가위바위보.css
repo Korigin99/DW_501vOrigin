@@ -1,11 +1,4 @@
-/* 가위.css */
-
-body{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+body{ margin: 0; padding: 0; box-sizing: border-box;}
 #mask{
     width: 600px;
     height: auto;
@@ -14,24 +7,18 @@ body{
     display: flex;
     flex-direction: column;
 }
-
 #display_wrap{
     width: 600px;
     height: 200px;
     display: flex;
 }
-
 #user_dp, #com_dp{
     width: 290px;
     height: 190px;
     padding: 5px;
     position: relative;
 }
-
-#user_dp{
-    border-right: 1px solid #E8D9FF;
-}
-
+#user_dp{  border-right: 1px solid #E8D9FF;}
 #ment_wrap{
     width: 590px;
     height: 90px;
@@ -39,7 +26,6 @@ body{
     border-bottom: 1px solid #E8D9FF;
     padding: 5px
 }
-
 #ment, #retry{
     width: 590px;
     height: 40px;
@@ -48,25 +34,18 @@ body{
     font-weight: 700;
     text-align: center;
 }
-
 #ctrl_wrap{
     width: 600px;
     height: 200px;
     display: flex;
 }
-
 #sci_bt, #roc_bt, #pap_bt{
     width: 190px;
     height: 190px;
     padding: 5px;
     cursor: pointer;
 }
-
-#roc_bt{
-    border-right: 1px solid #E8D9FF;
-    border-left: 1px solid #E8D9FF;
-}
-
+#roc_bt{ border-right: 1px solid #E8D9FF; border-left: 1px solid #E8D9FF;}
 #user_img, #com_img{
     position: absolute;
     max-width: 100%;
@@ -74,15 +53,8 @@ body{
     left: 50%;
     transform: translateX(-50%);
 }
-
-img{
-    max-width: 100%;
-}
-
-.bt:active{
-    border: 1px solid red;
-}
-
+img{ max-width: 100%;}
+.bt:active{ border: 1px solid red;}
 #start{
     width: 100px;
     height:  50px;
@@ -93,7 +65,6 @@ img{
     border: none;
     border-radius: 10px;
 }
-
 #start:active{
     border: 1px solid skyblue;
     background: white;
