@@ -63,9 +63,9 @@ body{
     padding: 5px;
     text-align: center;
     display: flex;
-    height: 96px;
+    height: 100px;
 }
-#title_dp{width: 580px; text-align: center; font-size: 20px;}
+#title_dp{width: 580px; text-align: center; font-size: 20px; height: 100px; line-height: 100px;}
 span{ width: 150px; height: 96px; line-height: 96px;}
 .l_num{
     width: 55px;
