@@ -55,12 +55,13 @@
     var flag2 = 1;
     function showImage() {
         if (flag2 == 1) {
-            var d_imgNum = [Math.round(Math.random() * 5), Math.round(Math.random() * 5), Math.round(Math.random() * 5)];
+            var u_imgNum = [Math.round(Math.random() * 5), Math.round(Math.random() * 5), Math.round(Math.random() * 5)];
+            var c_imgNum = [Math.round(Math.random() * 5), Math.round(Math.random() * 5), Math.round(Math.random() * 5)];
             for (var i = 0; i < 3; i++) {
-                c_out[i].src = dice_img[d_imgNum[i]];
-                u_out[i].src = dice_img[d_imgNum[i]];
+                c_out[i].src = dice_img[c_imgNum[i]];
+                u_out[i].src = dice_img[u_imgNum[i]];
             }
-            flag = setTimeout(showImage, 50);
+            flag = setTimeout(showImage, 500);
         }
     }
     function doClick() {
@@ -78,7 +79,7 @@
             var user_dice = [user_dice1, user_dice2, user_dice3];
             var user_sum = user_dice1 + user_dice2 + user_dice3;
 
-            
+
             // 컴퓨터 나온 주사위 값에 맞게 이미지 삽입
             for (var j = 0; j < com_dice.length; j++) {
                 for (var i = 1; i <= 6; i++) {
@@ -96,17 +97,18 @@
                 }
             }
             /*테스트*/
-            /* user_dice1 = 2;
-            user_dice2 = 2;
-            user_dice3 = 2;
+            /* user_dice1 = 6;
+            user_dice2 = 6;
+            user_dice3 = 6;
             user_sum = user_dice1 + user_dice2 + user_dice3;
-    
-            com_dice1 = 1;
-            com_dice2 = 1;
-            com_dice3 = 1;
+
+            com_dice1 = 3;
+            com_dice2 = 3;
+            com_dice3 = 3;
             com_sum = com_dice1 + com_dice2 + com_dice3; */
             var c_result = "";
-            if (user_dice1 == user_dice2 == user_dice3 || com_dice1 == com_dice2 == com_dice3) {
+
+            if ((user_dice1 == user_dice2 && user_dice2 == user_dice3) && (com_dice1 == com_dice2 && com_dice2 == com_dice3)) {
                 if (user_sum == 3 || user_dice1 == 3) {
                     if (user_sum == com_sum) {
                         result = "DRAW";
@@ -162,10 +164,10 @@
             flag2 = 1;
             flag = setTimeout(showImage, 50);
             u_t.innerHTML = "USER"
-            c_t.innerHTML = "COM" 
+            c_t.innerHTML = "COM"
             result = "승자는???"
             m_out.innerHTML = result;
-        }else{
+        } else {
             alert("한번만 눌러주세요!");
             return false;
         }
