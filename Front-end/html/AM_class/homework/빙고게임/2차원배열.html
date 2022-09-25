@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var comDiv = new Array(5);
+    var rn = [];
+    var n = 0;
+    for(var i=0; i<comDiv.length; i++){
+        comDiv[i] = new Array(5);
+    }
+
+    for(var i=0; i<25;i++){
+        rn[i] = Math.floor(Math.random()*25)+1;
+        console.log(rn[i]);
+        for(var j=0; j<i ;j++){
+            if(rn[i] == rn[j]){
+                console.log(rn[i]);
+                i--;
+                break;
+            }
+        }
+    }
+
+
+    for(var i=0; i<comDiv.length; i++){
+        for(var j=0; j<comDiv.length; j++){
+            comDiv[i][j] = rn[n++];
+        }
+    }
+
+    console.log(comDiv);
+</script>
+</html>

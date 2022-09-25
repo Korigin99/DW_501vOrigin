@@ -226,9 +226,17 @@
     var cy = 0;
     var userWin = "userWin";
     var comWin = "comWin";
+    var breakNum = 0;
+    var temp = 0;
+    var temp2 = 1;
+    var colJ = 0;
+    var colI = 0;
+    var colTemp = 0;
+    var colTemp2 = 1;
+    var gameEnd = 0;
 
     var comDiv2 = new Array(5);
-    for(var i=0; i<comDiv2.length; i++){
+    for (var i = 0; i < comDiv2.length; i++) {
         comDiv2[i] = new Array(5);
     }
 
@@ -268,139 +276,246 @@
                     ux = parseInt(i / 5);
                     uy = i % 5;
                     userCheck[ux][uy] = true;
+                    break;
                 }
             }
-            for (var i = 0; i < comNum.length; i++) {
-                if (uNum == comNum[i]) {
-                    comDiv[i].style.background = "gray";
-                    comDiv[i].style.color = "white";
-                    cx = parseInt(i / 5);
-                    cy = i % 5;
-                    console.log(cx + " " + cy);
-                    comCheck[cx][cy] = true;
-                    console.log(comCheck);
+            for (var i = 0; i < comDiv2.length; i++) {
+                for (var j = 0; j < comDiv2.length; j++) {
+                    if (uNum == comDiv2[i][j].value) {
+                        comDiv2[i][j].style.background = "gray";
+                        comDiv2[i][j].style.color = "white";
+                        // console.log(cx + " " + cy);
+                        comCheck[i][j] = true;
+                        console.log(comCheck);
+                        breakNum = 1;
+                        break;
+                    }
                 }
             }
-
-
-            bingoCheck(userCheck, userWin);
             bingoCheck(comCheck, comWin);
-            setTimeout(comTurn, 30);
+            bingoCheck(userCheck, userWin);
+            setTimeout(comTurn, 300);
         } else {
             alert("컴퓨터 차례입니다. 기다려라!");
         }
     }
-    var breakNum = 0;
+
 
     // 컴퓨터 AI
     function comTurn() {
-        if (comFlag == 1) {
+        if(gameEnd == 0){
+            if (comFlag == 1) {
             comFlag = 0;
-            var comRan = Math.floor(Math.random() * 25);
-            for (var i = 0; i < 5; i++) {
-                for (var j = 0; j < 5; j++) {
-                    if (comCheck[i][j] == true) {
-                        var aN = 5;
-                        if(i==0){
-                            
-                        }
-                        switch(i%2){
-                            case 0: //가로
-                                if(j==4){
-
-                                    comDiv[j+1].style.background = "gray";
-                                    comDiv[j-1].style.color = "white";
-                                }
-                                break;
-                            case 1: //세로
-                                break;
-                        }
-                    }
-                    if (breakNum == 0) {
-                        for (var k = 0; k < randomNum.length; k++) {
-                            comDiv[comRan].style.background = "gray";
-                            comDiv[comRan].style.color = "white";
-                            console.log("comRan"+comRan);
-                            cx = parseInt(comRan / 5);
-                            cy = comRan % 5;
-                            comCheck[cx][cy] = true;
-                            console.log("cx"+cx+" cy"+cy);
-                            // randomNum[k] = true;
-                            console.log(comRan);
+            var comRan1 = Math.floor(Math.random() * 4);
+            var comRan2 = Math.floor(Math.random() * 4);
+            if ((temp2 == temp) || (colTemp2 == colTemp)) {
+                for (var rowRan = 0; rowRan < 5; rowRan++) {
+                    for (var colRan = 0; colRan < 5; colRan++) {
+                        if (((rowRan == temp2) && (colJ != colRan)) && comCheck[rowRan][colRan] != true) {
+                            comDiv2[temp2][colRan].style.background = "gray";
+                            comDiv2[temp2][colRan].style.color = "white";
+                            comCheck[temp2][colRan] = true;
+                            console.log("hi");
                             console.log(comCheck);
+                            for (var k = 0; k < 25; k++) {
+                                if (comDiv2[temp2][colRan].value == userDiv[k].value) {
+                                    userDiv[k].style.background = "gray";
+                                    userDiv[k].style.color = "white";
+                                    console.log("k값:" + k);
+                                    ux = parseInt(k / 5);
+                                    uy = k % 5;
+                                    userCheck[ux][uy] = true;
+                                    console.log("컴퓨터 랜덤 들림");
+                                    break;
+                                }
+                            }
+                            break;
+                        }
+
+                    }
+                }
+            }
+            if ((temp2 != temp)) {
+                for (var i = 0; i < 5; i++) {
+                    for (var j = 0; j < 5; j++) {
+                        if (comCheck[i][j] == true) {
+                            temp = i;
+                            temp2 = temp;
+                            colJ = j;
+                            for (var rowRan = 0; rowRan < 5; rowRan++) {
+                                for (var colRan = 0; colRan < 5; colRan++) {
+                                    // 가로
+                                    if (((rowRan == temp) && (j != colRan)) && comCheck[rowRan][colRan] != true) {
+                                        comDiv2[rowRan][colRan].style.background = "gray";
+                                        comDiv2[rowRan][colRan].style.color = "white";
+                                        comCheck[rowRan][colRan] = true;
+                                        for (var k = 0; k < 25; k++) {
+                                            if (comDiv2[rowRan][colRan].value == userDiv[k].value) {
+                                                userDiv[k].style.background = "gray";
+                                                userDiv[k].style.color = "white";
+                                                console.log("k값:" + k);
+                                                ux = parseInt(k / 5);
+                                                uy = k % 5;
+                                                userCheck[ux][uy] = true;
+                                                console.log("컴퓨터 랜덤 들림");
+                                                break;
+                                            }
+                                        }
+                                        break;
+                                    }
+                                }
+                            }
                             break;
                         }
                     }
-                    breakNum = 1;
                 }
             }
+            else if ((colTemp2 != colTemp)) {
+                for (var i = 0; i < 5; i++) {
+                    for (var j = 0; j < 5; j++) {
+                        if (comCheck[i][j] == true) {
+                            colTemp = j;
+                            colTemp2 = colTemp;
+                            colI = i;
+                            for (var rowRan = 0; rowRan < 5; rowRan++) {
+                                for (var colRan = 0; colRan < 5; colRan++) {
+                                    if((rowRan != i)&&(colRan==colTemp2) && comCheck[rowRan][colRan] != true){
+                                        comDiv2[rowRan][colRan].style.background = "gray";
+                                        comDiv2[rowRan][colRan].style.color = "white";
+                                        comDiv2[rowRan][colRan] = true;
+                                        for (var k = 0; k < 25; k++) {
+                                            if (comDiv2[rowRan][colRan].value == userDiv[k].value) {
+                                                userDiv[k].style.background = "gray";
+                                                userDiv[k].style.color = "white";
+                                                console.log("k값:" + k);
+                                                ux = parseInt(k / 5);
+                                                uy = k % 5;
+                                                userCheck[ux][uy] = true;
+                                                console.log("컴퓨터 랜덤 들림");
+                                                break;
+                                            }
+                                        }
+                                        break;
+                                    }
+                                }
+                            }
+                            break;
+                        }
+                    }
+                }
+            }
+            if (breakNum == 0) {
+                            for (var x = 0; x < comDiv2.length; x++) {
+                                for (var y = 0; y < comDiv2.length; x++) {
+                                    comDiv2[comRan1][comRan2].style.background = "gray";
+                                    comDiv2[comRan1][comRan2].style.color = "white";
+                                    comCheck[comRan1][comRan2] = true;
+                                    console.log(comCheck);
+                                    for (var k = 0; k < 25; k++) {
+                                        if (comDiv2[comRan1][comRan2].value == userDiv[k].value) {
+                                            userDiv[k].style.background = "gray";
+                                            userDiv[k].style.color = "white";
+                                            console.log("k값:" + k);
+                                            ux = parseInt(k / 5);
+                                            uy = k % 5;
+                                            userCheck[ux][uy] = true;
+                                            console.log("컴퓨터 랜덤 들림");
+                                            break;
+                                        }
+                                    }
+                                }
+                            }
+                            breakNum = 1;
+                        }
+
+        }
+        bingoCheck(comCheck, comWin);
+        bingoCheck(userCheck, userWin);
         }
     }
     function bingoCheck(nameCheck, name2) {
         // 가로 범위
-        for (var i = 0; i < 5; i++) {
-            // 가로
-            if ((nameCheck[i][0] && nameCheck[i][1] && nameCheck[i][2] && nameCheck[i][3] && nameCheck[i][4]) == true) {
-                if (name2 == "userWin") {
-                    alert("원빙고! 유저승!!! 게임 종료");
-                    flag = 2;
-                    break;
+        if (gameEnd == 0) {
+            for (var i = 0; i < 5; i++) {
+                // 가로
+                if ((nameCheck[i][0] && nameCheck[i][1] && nameCheck[i][2] && nameCheck[i][3] && nameCheck[i][4]) == true) {
+                    if (name2 == "userWin") {
+                        alert("원빙고! 유저승!!! 게임 종료");
+                        flag = 2;
+                        gameEnd = 1;
+                        break;
+                    }
+                    if (name2 == "comWin") {
+                        alert("원빙고! 컴퓨터승!!! 게임 종료");
+                        flag = 2;
+                        gameEnd = 1;
+                        break;
+                    }
                 }
-                if (name2 == "comWin") {
-                    alert("원빙고! 컴퓨터승!!! 게임 종료");
-                    flag = 2;
-                    break;
+                // 세로
+                if ((nameCheck[0][i] && nameCheck[1][i] && nameCheck[2][i] && nameCheck[3][i] && nameCheck[4][i]) == true) {
+                    if (name2 == "userWin") {
+                        alert("원빙고! 유저승!!! 게임 종료");
+                        flag = 2;
+                        gameEnd = 1;
+                        break;
+                    }
+                    if (name2 == "comWin") {
+                        alert("원빙고! 컴퓨터승!!! 게임 종료");
+                        flag = 2;
+                        gameEnd = 1;
+                        break;
+                    }
+                }
+                // 대각선 위에서 아래
+                if ((nameCheck[0][0] && nameCheck[1][1] && nameCheck[2][2] && nameCheck[3][3] && nameCheck[4][4]) == true) {
+                    if (name2 == "userWin") {
+                        alert("원빙고! 유저승!!! 게임 종료");
+                        flag = 2;
+                        gameEnd = 1;
+                        break;
+                    }
+                    if (name2 == "comWin") {
+                        alert("원빙고! 컴퓨터승!!! 게임 종료");
+                        flag = 2;
+                        gameEnd = 1;
+                        break;
+                    }
+                }
+                // 대각선 아래에서 위
+                if ((nameCheck[0][4] && nameCheck[1][3] && nameCheck[2][2] && nameCheck[3][1] && nameCheck[4][0]) == true) {
+                    if (name2 == "userWin") {
+                        alert("원빙고! 유저승!!! 게임 종료");
+                        flag = 2;
+                        gameEnd = 1;
+                        break;
+                    }
+                    if (name2 == "comWin") {
+                        alert("원빙고! 컴퓨터승!!! 게임 종료");
+                        flag = 2;
+                        gameEnd = 1;
+                        break;
+                    }
                 }
             }
-            // 세로
-            if ((nameCheck[0][i] && nameCheck[1][i] && nameCheck[2][i] && nameCheck[3][i] && nameCheck[4][i]) == true) {
-                if (name2 == "userWin") {
-                    alert("원빙고! 유저승!!! 게임 종료");
-                    flag = 2;
-                    break;
-                }
-                if (name2 == "comWin") {
-                    alert("원빙고! 컴퓨터승!!! 게임 종료");
-                    flag = 2;
-                    break;
-                }
-            }
-            // 대각선 위에서 아래
-            if ((nameCheck[0][0] && nameCheck[1][1] && nameCheck[2][2] && nameCheck[3][3] && nameCheck[4][4]) == true) {
-                if (name2 == "userWin") {
-                    alert("원빙고! 유저승!!! 게임 종료");
-                    flag = 2;
-                    break;
-                }
-                if (name2 == "comWin") {
-                    alert("원빙고! 컴퓨터승!!! 게임 종료");
-                    flag = 2;
-                    break;
-                }
-            }
-            // 대각선 아래에서 위
-            if ((nameCheck[0][4] && nameCheck[1][3] && nameCheck[2][2] && nameCheck[3][1] && nameCheck[4][0]) == true) {
-                if (name2 == "userWin") {
-                    alert("원빙고! 유저승!!! 게임 종료");
-                    flag = 2;
-                    break;
-                }
-                if (name2 == "comWin") {
-                    alert("원빙고! 컴퓨터승!!! 게임 종료");
-                    flag = 2;
-                    break;
-                }
-            }
+        } else {
+            alert("다시하기 버튼을 눌러주세요!");
+            return false;
         }
     }
     // 초기화
     function restart() {
+        gameEnd = 0;
         alert("게임을 다시 시작합니다.");
         for (var i = 0; i < 25; i++) {
             userDiv[i].style.background = "white";
             userDiv[i].style.color = "black";
-            comDiv[i].style.background = "white";
-            comDiv[i].style.color = "black";
+        }
+        for(var i=0; i<5;i++){
+            for(var j=0; j<5; j++){
+                comDiv2[i][j].style.background = "white";
+                comDiv2[i][j].style.color = "black";
+            }
         }
         userDiv = [];
         userNum = [];
@@ -428,13 +543,13 @@
     function randomN() {
         if (flag == 1) {
             while (comNum.length < 25) {
-                var n = parseInt(Math.random() * 100) + 1;
+                var n = parseInt(Math.random() * 25) + 1;
                 if (comNum.indexOf(n) < 0) {
                     comNum.push(n);
                 }
             }
             while (userNum.length < 25) {
-                var n = parseInt(Math.random() * 100) + 1;
+                var n = parseInt(Math.random() * 25) + 1;
                 if (userNum.indexOf(n) < 0) {
                     userNum.push(n);
                 }
@@ -446,16 +561,33 @@
 
                 }
             }
-            console.log(randomNum);
+
             for (var i = 0; i < 25; i++) {
-                comDiv[i] = document.getElementById("comCol" + (i + 1));
+                // comDiv[i] = document.getElementById("comCol" + (i + 1));
                 userDiv[i] = document.getElementById("userCol" + (i + 1));
             }
-            for (var i = 0; i < comDiv.length; i++) {
-                comDiv[i].value = comNum[i];
-                comDiv[i].innerHTML = comNum[i];
+            var colNum = 0;
+            for (var i = 0; i < 5; i++) {
+                for (var j = 0; j < 5; j++) {
+
+                    comDiv2[i][j] = document.getElementById("comCol" + (++colNum));
+                }
+            }
+            // console.log(comDiv2);
+
+            for (var i = 0; i < userDiv.length; i++) {
+                // comDiv[i].value = comNum[i];
+                // comDiv[i].innerHTML = comNum[i];
                 userDiv[i].value = userNum[i];
                 userDiv[i].innerHTML = userNum[i];
+            }
+            var cN = 0;
+            var cN2 = 0;
+            for (var i = 0; i < comDiv2.length; i++) {
+                for (var j = 0; j < comDiv2.length; j++) {
+                    comDiv2[i][j].value = comNum[cN++];
+                    comDiv2[i][j].innerHTML = comNum[cN2++];
+                }
             }
             flag = 0;
             comFlag = 0;

@@ -156,7 +156,7 @@
                 </div>
             </div>
             <div class="result_wrap">
-                <button onclick="userSave()">게임 시작</button>
+                <button onclick="userSave()">유저 숫자 저장</button>
                 <!-- <button onclick="gameStart()">게임시작</button> -->
             </div>
             <div class="com_wrap">
@@ -209,6 +209,7 @@
 
     var flag = 1;
     var comFlag = 5;
+    var bingo = 0;
     var uNum;
     var udiv;
     var uDiv;
@@ -223,8 +224,6 @@
     var uy = 0;
     var cx = 0;
     var cy = 0;
-    var userWin = "userWin";
-    var comWin = "comWin";
 
     for (var i = 0; i < 5; i++) {
         for (var j = 0; j < 5; j++) {
@@ -238,7 +237,51 @@
         if (flag == 2) {
             restart();
         }
-        randomN();   
+
+        if (flag == 1) {
+            while (comNum.length < 25) {
+                var n = parseInt(Math.random() * 100) + 1;
+                if (comNum.indexOf(n) < 0) {
+                    comNum.push(n);
+                }
+            }
+            while (userNum.length < 25) {
+                var n = parseInt(Math.random() * 100) + 1;
+                if (userNum.indexOf(n) < 0) {
+                    userNum.push(n);
+                }
+            }
+
+            while (randomNum.length < 25) {
+                var n = parseInt(Math.random() * 25);
+                if (randomNum.indexOf(n) < 0) {
+                    randomNum.push(n);
+                }
+            }
+            /* console.log("랜덤" + randomNum); */
+            for (var i = 0; i < 25; i++) {
+                comDiv[i] = document.getElementById("comCol" + (i + 1));
+                userDiv[i] = document.getElementById("userCol" + (i + 1));
+            }
+            for (var i = 0; i < comDiv.length; i++) {
+                comDiv[i].value = comNum[i];
+                comDiv[i].innerHTML = comNum[i];
+                userDiv[i].value = userNum[i];
+                userDiv[i].innerHTML = userNum[i];
+            }
+
+            flag = 0;
+            /* console.log(comDiv[5]);
+            console.log(userDiv[5]);
+            console.log(userDiv[4]);
+            console.log(userDiv[6]);
+            console.log(comNum);
+            console.log(userNum); */
+            comFlag = 0;
+        } else {
+            alert("한 번만 누르세요");
+            return false;
+        }
     }
     // 유저가 빙고 클릭시 일어나는 이벤트
     function bingoClick(uName) {
@@ -262,6 +305,10 @@
                     ux = parseInt(i / 5);
                     uy = i % 5;
                     userCheck[ux][uy] = true;
+                    console.log(uNum + "의 " + userCheck[ux][uy]);
+                    // console.log(x,y);
+                    // userCheck[x][y] = true;
+                    // console.log(userCheck[ux][uy]);
                 }
             }
             for (var i = 0; i < comNum.length; i++) {
@@ -271,12 +318,12 @@
                     cx = parseInt(i / 10);
                     cy = i % 10;
                     comCheck[cx][cy];
+
                 }
             }
-            
+            bingoCheck(userCheck);
+            bingoCheck(comCheck);
             setTimeout(comTurn, 30);
-            bingoCheck(userCheck,userWin);
-            bingoCheck(comCheck,comWin);
         } else {
             alert("컴퓨터 차례입니다. 기다려라!");
         }
@@ -287,63 +334,57 @@
     function comTurn() {
         if (comFlag == 1) {
             comFlag = 0;
+
         }
     }
-    function bingoCheck(nameCheck,name2) {
-        console.log(nameCheck);
+    function bingoCheck(nameCheck) {
         // 가로 범위
         for (var i = 0; i < 5; i++) {
             // 가로
             if ((nameCheck[i][0] && nameCheck[i][1] && nameCheck[i][2] && nameCheck[i][3] && nameCheck[i][4]) == true) {
-                if (name2 == "userWin") {
+                userDiv[i].style.background = "red";
+                userDiv[i + 1].style.background = "red";
+                userDiv[i + 2].style.background = "red";
+                userDiv[i + 3].style.background = "red";
+                userDiv[i + 4].style.background = "red";
+                if (nameCheck == "userCheck") {
                     alert("원빙고! 유저승!!! 게임 종료");
-                    flag = 2;
-                    break;
-                }
-                if(name2 == "comWin"){
-                    alert("원빙고! 컴퓨터승!!! 게임 종료");
                     flag = 2;
                     break;
                 }
             }
             // 세로
             if ((nameCheck[0][i] && nameCheck[1][i] && nameCheck[2][i] && nameCheck[3][i] && nameCheck[4][i]) == true) {
-                if (name2 == "userWin") {
-                    alert("원빙고! 유저승!!! 게임 종료");
-                    flag = 2;
-                    break;
-                }
-                if(name2 == "comWin"){
-                    alert("원빙고! 컴퓨터승!!! 게임 종료");
-                    flag = 2;
-                    break;
-                }
+                userDiv[i].style.background = "red";
+                userDiv[i + 5].style.background = "red";
+                userDiv[i + 10].style.background = "red";
+                userDiv[i + 15].style.background = "red";
+                userDiv[i + 20].style.background = "red";
+                alert("원빙고");
+                flag = 2;
+                break;
             }
             // 대각선 위에서 아래
             if ((nameCheck[0][0] && nameCheck[1][1] && nameCheck[2][2] && nameCheck[3][3] && nameCheck[4][4]) == true) {
-                if (name2 == "userWin") {
-                    alert("원빙고! 유저승!!! 게임 종료");
-                    flag = 2;
-                    break;
-                }
-                if(name2 == "comWin"){
-                    alert("원빙고! 컴퓨터승!!! 게임 종료");
-                    flag = 2;
-                    break;
-                }
+                userDiv[i].style.background = "red";
+                userDiv[i + 6].style.background = "red";
+                userDiv[i + 12].style.background = "red";
+                userDiv[i + 18].style.background = "red";
+                userDiv[i + 24].style.background = "red";
+                alert("원빙고");
+                flag = 2;
+                break;
             }
             // 대각선 아래에서 위
             if ((nameCheck[0][4] && nameCheck[1][3] && nameCheck[2][2] && nameCheck[3][1] && nameCheck[4][0]) == true) {
-                if (name2 == "userWin") {
-                    alert("원빙고! 유저승!!! 게임 종료");
-                    flag = 2;
-                    break;
-                }
-                if(name2 == "comWin"){
-                    alert("원빙고! 컴퓨터승!!! 게임 종료");
-                    flag = 2;
-                    break;
-                }
+                userDiv[i + 4].style.background = "red";
+                userDiv[i + 8].style.background = "red";
+                userDiv[i + 12].style.background = "red";
+                userDiv[i + 16].style.background = "red";
+                userDiv[i + 20].style.background = "red";
+                alert("원빙고");
+                flag = 2;
+                break;
             }
         }
     }
@@ -351,10 +392,7 @@
     function restart() {
         alert("게임을 다시 시작합니다.");
         for(var i=0; i<25; i++){
-            userDiv[i].style.background = "white";
-            userDiv[i].style.color = "black";
-            comDiv[i].style.background = "white";
-            comDiv[i].style.color = "black";
+            userDiv[i].style.background = "";
         }
         userDiv = [];
         userNum = [];
@@ -376,44 +414,8 @@
                 comCheck[i][j] = false;
             }
         }
+        console.log(userDiv);
         flag = 1;
-    }
-
-    function randomN(){
-        if (flag == 1) {
-            while (comNum.length < 25) {
-                var n = parseInt(Math.random() * 100) + 1;
-                if (comNum.indexOf(n) < 0) {
-                    comNum.push(n);
-                }
-            }
-            while (userNum.length < 25) {
-                var n = parseInt(Math.random() * 100) + 1;
-                if (userNum.indexOf(n) < 0) {
-                    userNum.push(n);
-                }
-            }
-            while (randomNum.length < 25) {
-                var n = parseInt(Math.random() * 25);
-                if (randomNum.indexOf(n) < 0) {
-                    randomNum.push(n);
-                }
-            }
-            for (var i = 0; i < 25; i++) {
-                comDiv[i] = document.getElementById("comCol" + (i + 1));
-                userDiv[i] = document.getElementById("userCol" + (i + 1));
-            }
-                comDiv[i].value = comNum[i];
-                comDiv[i].innerHTML = comNum[i];
-                userDiv[i].value = userNum[i];
-                userDiv[i].innerHTML = userNum[i];
-      
-            flag = 0;
-            comFlag = 0;
-        }else{
-            alert("한 번만 누르세요");
-            return false;
-        }
     }
 </script>
 
