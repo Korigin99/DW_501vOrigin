@@ -367,9 +367,9 @@
                         }
                     }
                 }
-
                 if (breakNum == 0) {
                     derection = 0;
+                    breakNum =1;
                     // 아무것도 겹치지 않았을
                     console.log("breakNum이 0일때")
                     for (var x = 0; x < comDiv2.length; x++) {
@@ -422,7 +422,6 @@
                                     comCheck[temp2][colRan] = true;
                                     console.log("hi");
                                     console.log(comCheck);
-                                    breakNum = 3;
                                     for (var k = 0; k < 25; k++) {
                                         if (comDiv2[temp2][colRan].value == userDiv[k].value) {
                                             userDiv[k].style.background = "lightcoral";
@@ -485,7 +484,6 @@
                                             }
                                         }
                                         comFlag = 0;
-                                        breakNum = 1;
                                         res.innerHTML = "유저 차례";
                                         bingoCheck(comCheck, comWin);
                                         bingoCheck(userCheck, userWin);
@@ -510,7 +508,6 @@
                                     comCheck[rowRan][colTemp2] = true;
                                     console.log("hi");
                                     console.log(comCheck);
-                                    breakNum = 3;
                                     for (var k = 0; k < 25; k++) {
                                         if (comDiv2[rowRan][colTemp2].value == userDiv[k].value) {
                                             userDiv[k].style.background = "lightcoral";
@@ -565,7 +562,6 @@
                                                             console.log("세로 컴퓨터 랜덤 들림2");
                                                             ak = 25;
                                                             comFlag = 0;
-                                                            breakNum = 1;
                                                             res.innerHTML = "유저 차례";
                                                             bingoCheck(comCheck, comWin);
                                                             bingoCheck(userCheck, userWin);
@@ -573,7 +569,6 @@
                                                         }
                                                     }
                                                     comFlag = 0;
-                                                    breakNum = 1;
                                                     res.innerHTML = "유저 차례";
                                                     bingoCheck(comCheck, comWin);
                                                     bingoCheck(userCheck, userWin);
@@ -582,7 +577,6 @@
                                             }
                                         }
                                         comFlag = 0;
-                                        breakNum = 1;
                                         res.innerHTML = "유저 차례";
                                         bingoCheck(comCheck, comWin);
                                         bingoCheck(userCheck, userWin);
@@ -595,7 +589,6 @@
                 }
                 // 세로끝
                 comFlag = 0;
-                breakNum = 1;
                 res.innerHTML = "유저 차례";
             }
             bingoCheck(comCheck, comWin);
@@ -785,7 +778,6 @@
                     comDiv2[i][j].innerHTML = comNum[cN2++];
                 }
             }
-            breakNum = 0;
             flag = 0;
         } else {
             alert("한 번만 누르세요");
