@@ -219,9 +219,7 @@
     var res = document.getElementById("display_wrap");
     var userDiv = [];
     var userNum = [];
-    var userInput = [];
     var comNum = [];
-    var comDiv = [];
 
     var flag = 1;
     var comFlag = 5;
@@ -250,6 +248,8 @@
     var colTemp = 0;
     var colTemp2 = 1;
     var gameEnd = 0;
+    var crossCheck = 0;
+    var crossCheck2 = 0;
 
     var comDiv2 = new Array(5);
     for (var i = 0; i < comDiv2.length; i++) {
@@ -336,27 +336,55 @@
                 console.log("어디가 겹칠까요~");
                 var comRan1 = Math.floor(Math.random() * 4);
                 var comRan2 = Math.floor(Math.random() * 4);
+
+                // 대각선 왼쪽 위에서 오른쪽 아래
+                for (var i = 0; i < 5; i++) {
+                    if (comCheck[i][i] == true) {
+                        for (var j = 0; j < 5; j++) {
+                            if (i != j && comCheck[j][j] == true) {
+                                if (comCheck[i][i] == comCheck[j][j]) {
+                                    ++crossCheck;
+                                    console.log("대각선" + crossCheck);
+                                }
+                            }
+                        }
+                    }
+                }
+                // 대각선 왼쪽 아래에서 오른 쪽 위
+               /*  for(var i=4; i>=0; i++){
+                    for(var j=0; j<5; j++){
+                        if(comCheck[i][j]==true){
+                            
+                        }
+                    }
+                } */
+                // 가로체크
                 for (var uc = 0; uc < 5; uc++) {
                     for (var ur = 0; ur < 5; ur++) {
                         if (comCheck[uc][ur] === true) {
                             for (var i = 0; i < 5; i++) {
-                                if (comCheck[uc][i] === true) {
-                                    ++rowCheck; //가로
-                                    console.log("가로" + rowCheck);
+                                if (i != ur) {
+                                    if (comCheck[uc][i] === true) {
+                                        ++rowCheck; //가로
+                                        console.log("가로" + rowCheck);
+                                    }
                                 }
                             }
                             break;
                         }
                     }
                 }
+                // 세로체크 
                 for (var uc = 0; uc < 5; uc++) {
                     for (var ur = 0; ur < 5; ur++) {
                         if (comCheck[uc][ur] === true) {
                             for (var i = 0; i < 5; i++) {
-                                if (comCheck[i][ur] === true) {
-                                    ++colCheck;
-                                    console.log("세로" + colCheck);
-                                    // 세로;
+                                if (i != uc) {
+                                    if (comCheck[i][ur] === true) {
+                                        ++colCheck;
+                                        console.log("세로" + colCheck);
+                                        // 세로;
+                                    }
                                 }
                             }
                             break;
@@ -372,8 +400,8 @@
                             comDiv2[comRan1][comRan2].style.background = "lightcoral";
                             comDiv2[comRan1][comRan2].style.color = "white";
                             comCheck[comRan1][comRan2] = true;
-                            console.log(comCheck);
                             for (var k = 0; k < 25; k++) {
+                                // 컴퓨터 이벤트시 유저 값과 겹치면
                                 if (comDiv2[comRan1][comRan2].value == userDiv[k].value) {
                                     userDiv[k].style.background = "lightcoral";
                                     userDiv[k].style.color = "white";
@@ -403,6 +431,33 @@
                         rowS = 1;
                     } else {
                         colS = 2;
+                    }
+                }
+                // 대각선
+                if (crossCheck > rowCheck && crossCheck > colCheck) {
+                    for (var i = 0; i < 5; i++) {
+                        if (comCheck[i][i] == true) {
+                            for (var j = 0; j < 5; j++) {
+                                // if (i != j) {
+                                    if (comCheck[j][j] != true) {
+                                        comCheck[j][j] = true;
+                                        comDiv2[j][j].style.background = "lightcoral";
+                                        comDiv2[j][j].style.color = "white";
+                                        comFlag = 0;
+                                        res.innerHTML = "유저 차례";
+                                        for(var k=0; k<25; k++){
+                                            if(userDiv[k].value == comDiv2[j][j].value){
+                                                userDiv[k].style.background = "lightcoral";
+                                                userDiv[k].style.color = "white";
+                                        }
+                                        }
+                                        bingoCheck(comCheck, comWin);
+                                        bingoCheck(userCheck, userWin);
+                                        return;
+                                    }
+                                // }
+                            }
+                        }
                     }
                 }
                 // 가로
