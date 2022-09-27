@@ -1,12 +1,295 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 1000px;
+            height: 1100px;
+            margin: 20px auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .title_wrap {
+            width: 100%;
+            height: 100px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .content_wrap {
+            width: 100%;
+            height: 100%;
+        }
+
+        .mainLine {
+            width: 100%;
+            height: 10%;
+            display: flex;
+        }
+
+        .subLine {
+            width: 10%;
+            height: 100%;
+            line-height: 100px;
+            font-size: 50px;
+            border: 1px solid black;
+            text-align: center;
+        }
+    </style>
 </head>
+
 <body>
-    
+    <div class="container">
+        <div class="title_wrap">미로 찾기</div>
+        <div class="content_wrap">
+            <div class="mainLine0 mainLine">
+                <div id="subLine0" class="subLine">🚀</div>
+                <div id="subLine1" class="subLine"></div>
+                <div id="subLine2" class="subLine"></div>
+                <div id="subLine3" class="subLine"></div>
+                <div id="subLine4" class="subLine"></div>
+                <div id="subLine5" class="subLine"></div>
+                <div id="subLine6" class="subLine"></div>
+                <div id="subLine7" class="subLine"></div>
+                <div id="subLine8" class="subLine"></div>
+                <div id="subLine9" class="subLine"></div>
+            </div>
+            <div class="mainLine1 mainLine">
+                <div id="subLine10" class="subLine"></div>
+                <div id="subLine11" class="subLine"></div>
+                <div id="subLine12" class="subLine"></div>
+                <div id="subLine13" class="subLine"></div>
+                <div id="subLine14" class="subLine"></div>
+                <div id="subLine15" class="subLine"></div>
+                <div id="subLine16" class="subLine"></div>
+                <div id="subLine17" class="subLine"></div>
+                <div id="subLine18" class="subLine"></div>
+                <div id="subLine19" class="subLine"></div>
+            </div>
+            <div class="mainLine2 mainLine">
+                <div id="subLine20" class="subLine"></div>
+                <div id="subLine21" class="subLine"></div>
+                <div id="subLine22" class="subLine"></div>
+                <div id="subLine23" class="subLine"></div>
+                <div id="subLine24" class="subLine"></div>
+                <div id="subLine25" class="subLine"></div>
+                <div id="subLine26" class="subLine"></div>
+                <div id="subLine27" class="subLine"></div>
+                <div id="subLine28" class="subLine"></div>
+                <div id="subLine29" class="subLine"></div>
+            </div>
+            <div class="mainLine3 mainLine">
+                <div id="subLine30" class="subLine"></div>
+                <div id="subLine31" class="subLine"></div>
+                <div id="subLine32" class="subLine"></div>
+                <div id="subLine33" class="subLine"></div>
+                <div id="subLine34" class="subLine"></div>
+                <div id="subLine35" class="subLine"></div>
+                <div id="subLine36" class="subLine"></div>
+                <div id="subLine37" class="subLine"></div>
+                <div id="subLine38" class="subLine"></div>
+                <div id="subLine39" class="subLine"></div>
+            </div>
+            <div class="mainLine4 mainLine">
+                <div id="subLine40" class="subLine"></div>
+                <div id="subLine41" class="subLine"></div>
+                <div id="subLine42" class="subLine"></div>
+                <div id="subLine43" class="subLine"></div>
+                <div id="subLine44" class="subLine"></div>
+                <div id="subLine45" class="subLine"></div>
+                <div id="subLine46" class="subLine"></div>
+                <div id="subLine47" class="subLine"></div>
+                <div id="subLine48" class="subLine"></div>
+                <div id="subLine49" class="subLine"></div>
+            </div>
+            <div class="mainLine5 mainLine">
+                <div id="subLine50" class="subLine"></div>
+                <div id="subLine51" class="subLine"></div>
+                <div id="subLine52" class="subLine"></div>
+                <div id="subLine53" class="subLine"></div>
+                <div id="subLine54" class="subLine"></div>
+                <div id="subLine55" class="subLine"></div>
+                <div id="subLine56" class="subLine"></div>
+                <div id="subLine57" class="subLine"></div>
+                <div id="subLine58" class="subLine"></div>
+                <div id="subLine59" class="subLine"></div>
+            </div>
+            <div class="mainLine6 mainLine">
+                <div id="subLine60" class="subLine"></div>
+                <div id="subLine61" class="subLine"></div>
+                <div id="subLine62" class="subLine"></div>
+                <div id="subLine63" class="subLine"></div>
+                <div id="subLine64" class="subLine"></div>
+                <div id="subLine65" class="subLine"></div>
+                <div id="subLine66" class="subLine"></div>
+                <div id="subLine67" class="subLine"></div>
+                <div id="subLine68" class="subLine"></div>
+                <div id="subLine69" class="subLine"></div>
+            </div>
+            <div class="mainLine7 mainLine">
+                <div id="subLine70" class="subLine"></div>
+                <div id="subLine71" class="subLine"></div>
+                <div id="subLine72" class="subLine"></div>
+                <div id="subLine73" class="subLine"></div>
+                <div id="subLine74" class="subLine"></div>
+                <div id="subLine75" class="subLine"></div>
+                <div id="subLine76" class="subLine"></div>
+                <div id="subLine77" class="subLine"></div>
+                <div id="subLine78" class="subLine"></div>
+                <div id="subLine79" class="subLine"></div>
+            </div>
+            <divl class="mainLine8 mainLine">
+                <div id="subLine80" class="subLine"></div>
+                <div id="subLine81" class="subLine"></div>
+                <div id="subLine82" class="subLine"></div>
+                <div id="subLine83" class="subLine"></div>
+                <div id="subLine84" class="subLine"></div>
+                <div id="subLine85" class="subLine"></div>
+                <div id="subLine86" class="subLine"></div>
+                <div id="subLine87" class="subLine"></div>
+                <div id="subLine88" class="subLine"></div>
+                <div id="subLine89" class="subLine"></div>
+            </divl>
+            <div class="mainLine9 mainLine">
+                <div id="subLine90" class="subLine"></div>
+                <div id="subLine91" class="subLine"></div>
+                <div id="subLine92" class="subLine"></div>
+                <div id="subLine93" class="subLine"></div>
+                <div id="subLine94" class="subLine"></div>
+                <div id="subLine95" class="subLine"></div>
+                <div id="subLine96" class="subLine"></div>
+                <div id="subLine97" class="subLine"></div>
+                <div id="subLine98" class="subLine"></div>
+                <div id="subLine99" class="subLine"></div>
+            </div>
+        </div>
+    </div>
 </body>
+<script>
+    var mazeMap = new Array(10);
+    for (var i = 0; i < mazeMap.length; i++) {
+        mazeMap[i] = new Array(10);
+    }
+
+    var userLoc = new Array(10);
+    for (var i = 0; i < 10; i++) {
+        for (var j = 0; j < 10; j++) {
+            userLoc[i] = new Array(10);
+        }
+    }
+
+    mazeMap = [
+        [1, 1, 1, 1, 1, 0, 1, 0, 0, 1], // line0
+        [1, 0, 0, 0, 1, 0, 1, 1, 1, 1], // line1
+        [1, 0, 1, 1, 1, 0, 1, 0, 0, 1], // line2
+        [1, 0, 1, 0, 0, 0, 1, 0, 0, 1], // line3
+        [1, 0, 1, 1, 1, 1, 1, 1, 0, 1], // line4
+        [1, 0, 0, 0, 0, 0, 1, 0, 1, 0], // line5
+        [1, 0, 1, 1, 1, 0, 0, 0, 1, 0], // line6
+        [1, 0, 1, 0, 1, 1, 1, 1, 1, 1], // line7
+        [1, 0, 1, 0, 1, 0, 0, 0, 0, 1], // line8
+        [1, 0, 1, 0, 1, 1, 1, 1, 0, 1] // line9
+    ];
+    userLoc = [
+        [1, 0, 0, 0, 0, 0, 0, 0, 0, 0], // line0
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], // line1
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], // line2
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], // line3
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], // line4
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], // line5
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], // line6
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], // line7
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], // line8
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0] // line9
+    ];
+
+    console.log(mazeMap);
+    console.log(userLoc);
+
+    var mazeDiv = new Array(10);
+    for (var i = 0; i < mazeDiv.length; i++) {
+        mazeDiv[i] = new Array(10);
+    }
+
+    var lineNum = 0;
+    for (var i = 0; i < 10; i++) {
+        for (var j = 0; j < 10; j++) {
+            mazeDiv[i][j] = document.getElementById('subLine' + lineNum);
+            lineNum++;
+        }
+    }
+
+    console.log(mazeDiv);
+
+    document.addEventListener("keydown", mazeEscape);
+    function mazeEscape(e) {
+        var event = e || window.event;
+        var keycode = event.keyCode || e.which;
+
+        /* 좌-37 상-38 우-39 하-40  */
+        // if (keycode == 37 || keycode == 38 || keycode == 39 || keycode == 40) {
+            for (var i = 0; i < userLoc; i++) {             
+                            for (var j = 0; j < userLoc; j++) {
+                                if(userLoc[i][j] == 1){
+                                    console.log("sad")
+                                }
+                            }
+                        }
+
+                   /*  switch(keycode){
+                        case 37:
+                        
+                    }
+                    if (userLoc[i][j] == 1) {
+                        alert();
+                        if (keycode == 37) {
+                            userLoc[i][j] = 0;
+                            userLoc[i][j - 1] = 0;
+                            mazeDiv[i][j].innerHTML = "";
+                            mazeDiv[i][j - 1].innerHTML = "🚀"
+                            break;
+                        }
+                        if (keycode == 38) {
+                            userLoc[i][j] = 0;
+                            userLoc[i - 1][j] = 1;
+                            mazeDiv[i][j].innerHTML = "";
+                            mazeDiv[i - 1][j].innerHTML = "🚀";
+                            break;
+                        }
+                        if (keycode == 39) {
+                            userLoc[i][j] = 0;
+                            userLoc[i][j + 1] = 1;
+                            mazeDiv[i][j].innerHTML = "";
+                            mazeDiv[i][j + 1].innerHTML = "🚀";
+                            break;
+                        }
+                        if (keycode == 40) {
+                            userLoc[i][j] = 0;
+                            userLoc[i + 1][j] = 1;
+                            mazeDiv[i][j].innerHTML = "";
+                            mazeDiv[i + 1][j].innerHTML = "🚀";
+                            break;
+                        }
+                    } */
+            /*     }
+            } */
+        // }
+    }
+
+
+</script>
+
 </html>
