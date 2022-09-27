@@ -341,7 +341,7 @@
                 for (var i = 0; i < 5; i++) {
                     if (comCheck[i][i] == true) {
                         for (var j = 0; j < 5; j++) {
-                            if (i != j && comCheck[j][j] == true) {
+                            if (i != j && comCheck[j][j] == true) {               
                                 if (comCheck[i][i] == comCheck[j][j]) {
                                     ++crossCheck;
                                     console.log("대각선" + crossCheck);
@@ -351,24 +351,24 @@
                     }
                 }
                 // 대각선 왼쪽 아래에서 오른 쪽 위
-               /*  for(var i=4; i>=0; i++){
-                    for(var j=0; j<5; j++){
-                        if(comCheck[i][j]==true){
-                            
-                        }
-                    }
-                } */
+                /*  for(var i=4; i>=0; i++){
+                     for(var j=0; j<5; j++){
+                         if(comCheck[i][j]==true){
+                             
+                         }
+                     }
+                 } */
                 // 가로체크
                 for (var uc = 0; uc < 5; uc++) {
                     for (var ur = 0; ur < 5; ur++) {
-                        if (comCheck[uc][ur] === true) {
+                        if (comCheck[uc][ur] == true) {
                             for (var i = 0; i < 5; i++) {
-                                if (i != ur) {
-                                    if (comCheck[uc][i] === true) {
+                                // if (i != ur) {
+                                    if (comCheck[uc][i] == true) {
                                         ++rowCheck; //가로
                                         console.log("가로" + rowCheck);
                                     }
-                                }
+                                // }
                             }
                             break;
                         }
@@ -379,13 +379,13 @@
                     for (var ur = 0; ur < 5; ur++) {
                         if (comCheck[uc][ur] === true) {
                             for (var i = 0; i < 5; i++) {
-                                if (i != uc) {
+                                // if (i != uc) {
                                     if (comCheck[i][ur] === true) {
                                         ++colCheck;
                                         console.log("세로" + colCheck);
                                         // 세로;
                                     }
-                                }
+                                // }
                             }
                             break;
                         }
@@ -439,29 +439,29 @@
                         if (comCheck[i][i] == true) {
                             for (var j = 0; j < 5; j++) {
                                 // if (i != j) {
-                                    if (comCheck[j][j] != true) {
-                                        comCheck[j][j] = true;
-                                        comDiv2[j][j].style.background = "lightcoral";
-                                        comDiv2[j][j].style.color = "white";
-                                        comFlag = 0;
-                                        res.innerHTML = "유저 차례";
-                                        for(var k=0; k<25; k++){
-                                            if(userDiv[k].value == comDiv2[j][j].value){
-                                                userDiv[k].style.background = "lightcoral";
-                                                userDiv[k].style.color = "white";
+                                if (comCheck[j][j] != true) {
+                                    comCheck[j][j] = true;
+                                    comDiv2[j][j].style.background = "lightcoral";
+                                    comDiv2[j][j].style.color = "white";
+                                    comFlag = 0;
+                                    res.innerHTML = "유저 차례";
+                                    for (var k = 0; k < 25; k++) {
+                                        if (userDiv[k].value == comDiv2[j][j].value) {
+                                            userDiv[k].style.background = "lightcoral";
+                                            userDiv[k].style.color = "white";
                                         }
-                                        }
-                                        bingoCheck(comCheck, comWin);
-                                        bingoCheck(userCheck, userWin);
-                                        return;
                                     }
-                                // }
+                                    bingoCheck(comCheck, comWin);
+                                    bingoCheck(userCheck, userWin);
+                                    return;
+                                }
                             }
                         }
                     }
                 }
                 // 가로
                 if (rowCheck > colCheck || rowS == 1) {
+                    rowS=0;
                     if ((temp2 == temp)) {
                         console.log("가로옴");
                         for (var rowRan = 0; rowRan < 5; rowRan++) {
@@ -552,6 +552,7 @@
 
                 // 세로 시작
                 if (colCheck > rowCheck || colS == 2) {
+                    colS=0;
                     if ((colTemp2 == colTemp)) {
                         console.log("세로옴");
                         for (var rowRan = 0; rowRan < 5; rowRan++) {
@@ -735,22 +736,10 @@
                 comDiv2[i][j].style.color = "black";
             }
         }
-        userDiv = [];
-        userNum = [];
-        userInput = [];
-        comNum = [];
-        comDiv = [];
         flag = 1;
         comFlag = 5;
-        uNum;
-        udiv;
-        uDiv;
         rowS = 0;
         colS = 0;
-        row = 5;
-        column = 5;
-        userCheck = Array.from(Array(row), () => Array(column).fill(0));
-        comCheck = Array.from(Array(row), () => Array(column).fill(0));
         rowCheck = 0;
         colCheck = 0;
         ux = 0;
@@ -765,11 +754,6 @@
         colTemp = 0;
         colTemp2 = 1;
         gameEnd = 0;
-
-        comDiv2 = new Array(5);
-        for (var i = 0; i < comDiv2.length; i++) {
-            comDiv2[i] = new Array(5);
-        }
 
         for (var i = 0; i < 5; i++) {
             for (var j = 0; j < 5; j++) {
