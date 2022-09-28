@@ -15,7 +15,7 @@
 
         .container {
             width: 1000px;
-            height: 1100px;
+            height: 1150px;
             margin: 20px auto;
             display: flex;
             flex-direction: column;
@@ -24,6 +24,7 @@
         .title_wrap {
             width: 100%;
             height: 100px;
+            line-height: 100px;
             text-align: center;
             font-size: 24px;
             font-weight: 600;
@@ -45,7 +46,30 @@
             height: 100%;
             line-height: 100px;
             font-size: 50px;
-            border: 1px solid black;
+            /* border: 1px solid black; */
+            text-align: center;
+        }
+
+        button {
+            width: 150px;
+            height: 50px;
+            border: 1px solid skyblue;
+            color: skyblue;
+            background: white;
+            border-radius: 20px;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        button:hover {
+            background: skyblue;
+            color: white;
+            cursor: pointer;
+        }
+
+        .bt_wrap {
+            width: 100%;
+            height: 50px;
             text-align: center;
         }
     </style>
@@ -53,7 +77,8 @@
 
 <body>
     <div class="container">
-        <div class="title_wrap">미로 찾기</div>
+        <div class="title_wrap">미로 찾기 : 파란색으로 표시 된 곳으로 탈출하세요! (힌트는 두 번만 사용 가능!)</div>
+        <div class="bt_wrap"><button onclick="hint()">힌트</button></div>
         <div class="content_wrap">
             <div class="mainLine0 mainLine">
                 <div id="subLine0" class="subLine">🚀</div>
@@ -201,7 +226,7 @@
         [1, 0, 1, 1, 1, 0, 0, 0, 1, 0], // line6
         [1, 0, 1, 0, 1, 1, 1, 1, 1, 1], // line7
         [1, 0, 1, 0, 1, 0, 0, 0, 0, 1], // line8
-        [1, 0, 1, 0, 1, 1, 1, 1, 0, 1] // line9
+        [1, 1, 1, 0, 1, 1, 1, 1, 0, 1] // line9
     ];
     userLoc = [
         [1, 0, 0, 0, 0, 0, 0, 0, 0, 0], // line0
@@ -234,62 +259,119 @@
 
     console.log(mazeDiv);
 
+    var locX = 0;
+    var locY = 0;
+    mazeDiv[9][9].style.background = "skyblue";
+    mazeDiv[0][0].style.background = "skyblue";
+    var flag = 0;
+
+
     document.addEventListener("keydown", mazeEscape);
     function mazeEscape(e) {
         var event = e || window.event;
         var keycode = event.keyCode || e.which;
 
-        /* 좌-37 상-38 우-39 하-40  */
-        // if (keycode == 37 || keycode == 38 || keycode == 39 || keycode == 40) {
-            for (var i = 0; i < userLoc; i++) {             
-                            for (var j = 0; j < userLoc; j++) {
-                                if(userLoc[i][j] == 1){
-                                    console.log("sad")
-                                }
-                            }
-                        }
+        if (flag == 0) {
+            if (keycode == 37 && mazeMap[locX][locY - 1] === 1) {
+                if (mazeMap[locX][locY] <= 0) {
+                    return;
+                }
+                mazeDiv[locX][locY].style.background = "white";
+                mazeDiv[locX][locY - 1].style.background = "skyblue";
+                userLoc[locX][locY] = 0;
+                userLoc[locX][locY - 1] = 1;
+                mazeDiv[locX][locY].innerHTML = "";
+                mazeDiv[locX][locY - 1].innerHTML = "🚀"
+                locX;
+                locY--;
+                console.log("x : " + locX + "  y : " + locY);
+            }
+            if (keycode == 38 && mazeMap[locX - 1][locY] === 1) {
+                if (mazeMap[locX][locY] <= 0) {
+                    return;
+                }
+                mazeDiv[locX][locY].style.background = "white";
+                mazeDiv[locX - 1][locY].style.background = "skyblue";
+                userLoc[locX][locY] = 0;
+                userLoc[locX - 1][locY] = 1;
+                mazeDiv[locX][locY].innerHTML = "";
+                mazeDiv[locX - 1][locY].innerHTML = "🚀";
+                locX--;
+                locY;
+                console.log("x : " + locX + "  y : " + locY);
+            }
+            if (keycode == 39 && mazeMap[locX][locY + 1] === 1) {
+                if (mazeMap[locX][locY] <= 0) {
+                    return;
+                }
 
-                   /*  switch(keycode){
-                        case 37:
-                        
-                    }
-                    if (userLoc[i][j] == 1) {
-                        alert();
-                        if (keycode == 37) {
-                            userLoc[i][j] = 0;
-                            userLoc[i][j - 1] = 0;
-                            mazeDiv[i][j].innerHTML = "";
-                            mazeDiv[i][j - 1].innerHTML = "🚀"
-                            break;
-                        }
-                        if (keycode == 38) {
-                            userLoc[i][j] = 0;
-                            userLoc[i - 1][j] = 1;
-                            mazeDiv[i][j].innerHTML = "";
-                            mazeDiv[i - 1][j].innerHTML = "🚀";
-                            break;
-                        }
-                        if (keycode == 39) {
-                            userLoc[i][j] = 0;
-                            userLoc[i][j + 1] = 1;
-                            mazeDiv[i][j].innerHTML = "";
-                            mazeDiv[i][j + 1].innerHTML = "🚀";
-                            break;
-                        }
-                        if (keycode == 40) {
-                            userLoc[i][j] = 0;
-                            userLoc[i + 1][j] = 1;
-                            mazeDiv[i][j].innerHTML = "";
-                            mazeDiv[i + 1][j].innerHTML = "🚀";
-                            break;
-                        }
-                    } */
-            /*     }
-            } */
-        // }
+                mazeDiv[locX][locY].style.background = "white";
+                mazeDiv[locX][locY + 1].style.background = "skyblue";
+                userLoc[locX][locY] = 0;
+                userLoc[locX][locY + 1] = 1;
+                mazeDiv[locX][locY].innerHTML = "";
+                mazeDiv[locX][locY + 1].innerHTML = "🚀";
+                locX;
+                locY++;
+                console.log("x : " + locX + "  y : " + locY);
+            }
+            if (keycode == 40 && mazeMap[locX + 1][locY] == 1) {
+                if (mazeMap[locX][locY] <= 0) {
+                    return;
+                }
+                mazeDiv[locX][locY].style.background = "white";
+                mazeDiv[locX + 1][locY].style.background = "skyblue";
+                userLoc[locX][locY] = 0;
+                userLoc[locX + 1][locY] = 1;
+                mazeDiv[locX][locY].innerHTML = "";
+                mazeDiv[locX + 1][locY].innerHTML = "🚀";
+                locX++;
+                locY;
+                console.log("x : " + locX + "  y : " + locY);
+            }
+            if (userLoc[9][9] == 1) {
+                mazeDiv[9][9].style.background = "lightpink";
+                alert("탈출 성공");
+                flag = 1;
+            } else {
+                return;
+            }
+        }else{
+            alert("새로고침으로 다시 시작해주세요");
+            return;
+        }
+
     }
 
+    var chance = 0;
+    function hint() {
+        if (chance < 2) {
+            chance++;
+            console.log("xxx");
+            for (var i = 0; i < mazeMap.length; i++) {
+                for (var j = 0; j < mazeMap.length; j++) {
+                    if (mazeMap[i][j] == 1) {
+                        mazeDiv[i][j].style.background = "skyblue";
+                    }
+                }
+            }
+            setTimeout(hint2, 200);
+        } else {
+            alert("힌트를 다 사용했습니다~!");
+            return false;
+        }
 
+    }
+    function hint2() {
+        for (var i = 0; i < mazeMap.length; i++) {
+            for (var j = 0; j < mazeMap.length; j++) {
+                if (mazeMap[i][j] == 1) {
+                    mazeDiv[i][j].style.background = "white";
+                    mazeDiv[locX][locY].style.background = "skyblue";
+                }
+            }
+        }
+    }
 </script>
 
 </html>
