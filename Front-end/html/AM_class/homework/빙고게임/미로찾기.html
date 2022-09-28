@@ -15,10 +15,11 @@
 
         .container {
             width: 1000px;
-            height: 1150px;
+            height: 1200px;
             margin: 20px auto;
             display: flex;
             flex-direction: column;
+            position: relative;
         }
 
         .title_wrap {
@@ -71,6 +72,28 @@
             width: 100%;
             height: 50px;
             text-align: center;
+        }
+
+        .timeDP {
+            width: 350px;
+            height: 50px;
+            line-height: 50px;
+            font-size: 30px;
+            font-weight: 700;
+            margin: 0 auto;
+        }
+
+        .img_wrap {
+            width: 450px;
+            height: 450px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        img {
+            max-width: 100%;
         }
     </style>
 </head>
@@ -201,7 +224,10 @@
                 <div id="subLine99" class="subLine"></div>
             </div>
         </div>
+        <div class="timeDP">제한시간 60초</div>
+        <div class="img_wrap"><img src="" alt="" class="imgDP"></div>
     </div>
+
 </body>
 <script>
     var mazeMap = new Array(10);
@@ -256,7 +282,7 @@
             lineNum++;
         }
     }
-
+    var start = 0;
     console.log(mazeDiv);
 
     var locX = 0;
@@ -270,8 +296,16 @@
     function mazeEscape(e) {
         var event = e || window.event;
         var keycode = event.keyCode || e.which;
-
+        if (keycode != 37 && keycode != 38 && keycode != 39 && keycode != 40) {
+            return;
+        }
+        if (start == 2) {
+            alert("시간 초과로 게임 종료! 재시작:F5");
+            return;
+        }
         if (flag == 0) {
+
+            start = 1;
             if (keycode == 37 && mazeMap[locX][locY - 1] === 1) {
                 if (mazeMap[locX][locY] <= 0) {
                     return;
@@ -336,11 +370,10 @@
             } else {
                 return;
             }
-        }else{
+        } else {
             alert("새로고침으로 다시 시작해주세요");
             return;
         }
-
     }
 
     var chance = 0;
@@ -355,7 +388,7 @@
                     }
                 }
             }
-            setTimeout(hint2, 200);
+            setTimeout(hint2, 300);
         } else {
             alert("힌트를 다 사용했습니다~!");
             return false;
@@ -372,6 +405,28 @@
             }
         }
     }
+
+    var timeDP = document.querySelector(".timeDP");
+    var imgDP = document.querySelector('.imgDP');
+    var sec = 59;
+    setInterval(function () {
+        if (flag == 1) {
+            timeDP.innerHTML = "탈출에 걸린 시간 : " + (59 - sec) + "초";
+            imgDP.src = "goal.png";
+            return;
+        }
+        if (start == 1) {
+            timeDP.innerHTML = "제한시간 " + sec + "초";
+            sec--;
+            if (sec < 0) {
+                timeDP.innerHTML = "시간 초과";
+                start = 2;
+                imgDP.src = "boom.png";
+                return;
+            }
+        }
+    }, 1000);
+
 </script>
 
 </html>
