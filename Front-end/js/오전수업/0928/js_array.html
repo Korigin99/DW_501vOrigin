@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+  <style>
+    table{
+      text-align: center;
+      border: 1px solid black;
+    }
+    td {
+      border:  1px solid black;
+      width: 120px;
+      height: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <input type="file" id="docread" />
+  </div>
+  <div id="list"></div>
+</body>
+<script>
+  var list = new Array();
+  var info = new Array();
+  var res = document.querySelector('#list');
+  window.onload = function () { //onload는 부라주에 출력된 이후를 뜻 함. 
+    // window.onload는 브라우저에 모든 html이 출력된 이후
+    document.getElementById("docread").addEventListener('change', readFile);
+  };
+  async function readFile(e) {
+    var file = e.target.files[0];
+    if (!file) { // 파일 객체 존재유무
+      return;
+    }
+
+    var text = await file.text();
+    list = text.split('\n');
+    out_list();
+  }
+
+  function out_list() {
+    var out = ''
+    out += "<table> <tr><th>회차</th><th>발표일</th><th>번호1</th><th>번호2</th><th>번호3</th><th>번호4</th><th>번호5</th><th>번호6</th></tr>"
+    for (var i in list) {
+      out += "<tr>"
+      info = list[i].split('\t');
+      for(var j in info){
+        out += "<td>"+info[j]+"</td>";
+      }
+      out += "</tr>";
+    }
+    out += "</table>";
+    res.innerHTML = out;
+  }
+</script>
+
+</html>
