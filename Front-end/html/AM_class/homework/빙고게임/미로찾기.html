@@ -296,6 +296,13 @@
     function mazeEscape(e) {
         var event = e || window.event;
         var keycode = event.keyCode || e.which;
+        if(keycode == 27){
+            userLoc[9][9] = 1;
+            mazeDiv[9][9].innerHTML = "🚀"
+            mazeDiv[locX][locY].innerHTML = "";
+            mazeDiv[locX][locY].style.background = "white";
+
+        }
         if (keycode != 37 && keycode != 38 && keycode != 39 && keycode != 40) {
             return;
         }

@@ -109,7 +109,9 @@
         left: 50%;
         transform: translate(-50%, -50%);
     }
-
+    .a{
+        color: white;
+    }
     #display_wrap {
         width: 100%;
         height: 50px;
@@ -177,39 +179,39 @@
             <div class="com_wrap">
                 <div class="com_bingo">
                     <div class="comRow1 bingo_boxR">
-                        <div id="comCol1" class="bingo_box"></div>
-                        <div id="comCol2" class="bingo_box"></div>
-                        <div id="comCol3" class="bingo_box"></div>
-                        <div id="comCol4" class="bingo_box"></div>
-                        <div id="comCol5" class="bingo_box"></div>
+                        <div id="comCol1" class="bingo_box a"></div>
+                        <div id="comCol2" class="bingo_box a"></div>
+                        <div id="comCol3" class="bingo_box a"></div>
+                        <div id="comCol4" class="bingo_box a"></div>
+                        <div id="comCol5" class="bingo_box a"></div>
                     </div>
                     <div class="comRow2 bingo_boxR">
-                        <div id="comCol6" class="bingo_box"></div>
-                        <div id="comCol7" class="bingo_box"></div>
-                        <div id="comCol8" class="bingo_box"></div>
-                        <div id="comCol9" class="bingo_box"></div>
-                        <div id="comCol10" class="bingo_box"></div>
+                        <div id="comCol6" class="bingo_box a"></div>
+                        <div id="comCol7" class="bingo_box a"></div>
+                        <div id="comCol8" class="bingo_box a"></div>
+                        <div id="comCol9" class="bingo_box a"></div>
+                        <div id="comCol10" class="bingo_box a"></div>
                     </div>
                     <div class="comRow3 bingo_boxR">
-                        <div id="comCol11" class="bingo_box"></div>
-                        <div id="comCol12" class="bingo_box"></div>
-                        <div id="comCol13" class="bingo_box"></div>
-                        <div id="comCol14" class="bingo_box"></div>
-                        <div id="comCol15" class="bingo_box"></div>
+                        <div id="comCol11" class="bingo_box a"></div>
+                        <div id="comCol12" class="bingo_box a"></div>
+                        <div id="comCol13" class="bingo_box a"></div>
+                        <div id="comCol14" class="bingo_box a"></div>
+                        <div id="comCol15" class="bingo_box a"></div>
                     </div>
                     <div class="comRow4 bingo_boxR">
-                        <div id="comCol16" class="bingo_box"></div>
-                        <div id="comCol17" class="bingo_box"></div>
-                        <div id="comCol18" class="bingo_box"></div>
-                        <div id="comCol19" class="bingo_box"></div>
-                        <div id="comCol20" class="bingo_box"></div>
+                        <div id="comCol16" class="bingo_box a"></div>
+                        <div id="comCol17" class="bingo_box a"></div>
+                        <div id="comCol18" class="bingo_box a"></div>
+                        <div id="comCol19" class="bingo_box a"></div>
+                        <div id="comCol20" class="bingo_box a"></div>
                     </div>
                     <div class="comRow4 bingo_boxR">
-                        <div id="comCol21" class="bingo_box"></div>
-                        <div id="comCol22" class="bingo_box"></div>
-                        <div id="comCol23" class="bingo_box"></div>
-                        <div id="comCol24" class="bingo_box"></div>
-                        <div id="comCol25" class="bingo_box"></div>
+                        <div id="comCol21" class="bingo_box a"></div>
+                        <div id="comCol22" class="bingo_box a"></div>
+                        <div id="comCol23" class="bingo_box a"></div>
+                        <div id="comCol24" class="bingo_box a"></div>
+                        <div id="comCol25" class="bingo_box a"></div>
                     </div>
                 </div>
             </div>
@@ -448,7 +450,7 @@
                                 if (comCheck[j][j] != true) {
                                     comCheck[j][j] = true;
                                     comDiv2[j][j].style.background = "lightcoral";
-                                    comDiv2[j][j].style.color = "white";
+                                    comDiv2[j][j].style.color = "black";
                                     comFlag = 0;
                                     res.innerHTML = "유저 차례";
                                     for (var k = 0; k < 25; k++) {
@@ -475,7 +477,7 @@
                             for (var colRan = 0; colRan < 5; colRan++) {
                                 if (((rowRan == temp2) && (colJ != colRan)) && comCheck[rowRan][colRan] != true) {
                                     comDiv2[temp2][colRan].style.background = "lightcoral";
-                                    comDiv2[temp2][colRan].style.color = "white";
+                                    comDiv2[temp2][colRan].style.color = "black";
                                     comCheck[temp2][colRan] = true;
                                     console.log("hi");
                                     console.log(comCheck);
@@ -736,12 +738,12 @@
         alert("게임을 다시 시작합니다.");
         for (var i = 0; i < 25; i++) {
             userDiv[i].style.background = "white";
-            userDiv[i].style.color = "black";
+            userDiv[i].style.color = "white";
         }
         for (var i = 0; i < 5; i++) {
             for (var j = 0; j < 5; j++) {
                 comDiv2[i][j].style.background = "white";
-                comDiv2[i][j].style.color = "black";
+                comDiv2[i][j].style.color = "white";
             }
         }
         userDiv = [];
@@ -791,13 +793,13 @@
     function randomN() {
         if (flag == 1) {
             while (comNum.length < 25) {
-                var n = parseInt(Math.random() * 25) + 1;
+                var n = parseInt(Math.random() * 100) + 1;
                 if (comNum.indexOf(n) < 0) {
                     comNum.push(n);
                 }
             }
             while (userNum.length < 25) {
-                var n = parseInt(Math.random() * 25) + 1;
+                var n = parseInt(Math.random() * 100) + 1;
                 if (userNum.indexOf(n) < 0) {
                     userNum.push(n);
                 }
