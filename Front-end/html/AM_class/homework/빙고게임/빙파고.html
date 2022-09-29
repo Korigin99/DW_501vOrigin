@@ -250,7 +250,7 @@
     var gameEnd = 0;
     var crossCheck = 0;
     var crossCheck2 = 0;
-
+    var alcheck = 0;
     var comDiv2 = new Array(5);
     for (var i = 0; i < comDiv2.length; i++) {
         comDiv2[i] = new Array(5);
@@ -336,39 +336,46 @@
                 console.log("어디가 겹칠까요~");
                 var comRan1 = Math.floor(Math.random() * 4);
                 var comRan2 = Math.floor(Math.random() * 4);
-
-                // 대각선 왼쪽 위에서 오른쪽 아래
+                // if(alcheck < 2){
+                    // 대각선 왼쪽 위에서 오른쪽 아래
                 for (var i = 0; i < 5; i++) {
                     if (comCheck[i][i] == true) {
                         for (var j = 0; j < 5; j++) {
-                            if (i != j && comCheck[j][j] == true) {               
+                            if (i != j && comCheck[j][j] == true) {
                                 if (comCheck[i][i] == comCheck[j][j]) {
                                     ++crossCheck;
                                     console.log("대각선" + crossCheck);
                                 }
                             }
                         }
+                        break;
                     }
                 }
                 // 대각선 왼쪽 아래에서 오른 쪽 위
-                /*  for(var i=4; i>=0; i++){
-                     for(var j=0; j<5; j++){
-                         if(comCheck[i][j]==true){
-                             
-                         }
-                     }
-                 } */
+                /* for (var i = 4; i >= 0; i--) {
+                    for (var j = 0; j < 5; j++) {
+                        if (comCheck[i][j] == true) {
+                            for (var l = 4; l >= 0; l--) {
+                                for (var c = 0; c < 5; c++) {
+                                    if (i != l && j != c && comCheck[l][c] == true) {
+                                        ++crossCheck2;
+                                        console.log("왼오대각선" + crossCheck2);
+                                    }
+                                }
+                            }
+                            break;
+                        }
+                    }
+                } */
                 // 가로체크
                 for (var uc = 0; uc < 5; uc++) {
                     for (var ur = 0; ur < 5; ur++) {
                         if (comCheck[uc][ur] == true) {
                             for (var i = 0; i < 5; i++) {
-                                // if (i != ur) {
-                                    if (comCheck[uc][i] == true) {
-                                        ++rowCheck; //가로
-                                        console.log("가로" + rowCheck);
-                                    }
-                                // }
+                                if (comCheck[uc][i] == true) {
+                                    ++rowCheck; //가로
+                                    console.log("가로" + rowCheck);
+                                }
                             }
                             break;
                         }
@@ -379,18 +386,16 @@
                     for (var ur = 0; ur < 5; ur++) {
                         if (comCheck[uc][ur] === true) {
                             for (var i = 0; i < 5; i++) {
-                                // if (i != uc) {
-                                    if (comCheck[i][ur] === true) {
-                                        ++colCheck;
-                                        console.log("세로" + colCheck);
-                                        // 세로;
-                                    }
-                                // }
+                                if (comCheck[i][ur] == true) {
+                                    ++colCheck;
+                                    console.log("세로" + colCheck);
+                                }
                             }
                             break;
                         }
                     }
                 }
+                // }
                 if (breakNum == 0) {
                     breakNum = 1;
                     // 아무것도 겹치지 않았을
@@ -435,6 +440,7 @@
                 }
                 // 대각선
                 if (crossCheck > rowCheck && crossCheck > colCheck) {
+                    alcheck++;
                     for (var i = 0; i < 5; i++) {
                         if (comCheck[i][i] == true) {
                             for (var j = 0; j < 5; j++) {
@@ -461,7 +467,8 @@
                 }
                 // 가로
                 if (rowCheck > colCheck || rowS == 1) {
-                    rowS=0;
+                    alcheck++;
+                    rowS = 0;
                     if ((temp2 == temp)) {
                         console.log("가로옴");
                         for (var rowRan = 0; rowRan < 5; rowRan++) {
@@ -552,7 +559,8 @@
 
                 // 세로 시작
                 if (colCheck > rowCheck || colS == 2) {
-                    colS=0;
+                    alcheck++;
+                    colS = 0;
                     if ((colTemp2 == colTemp)) {
                         console.log("세로옴");
                         for (var rowRan = 0; rowRan < 5; rowRan++) {
