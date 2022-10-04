@@ -18,16 +18,24 @@ window.onload = function () {
 }
 
 var item = new Array();
-var itemP = new Array();
 function enroll() {
   var name = document.getElementById("item_name");
-  var price = document.getElementById("item_price").value;
   var prop = name.value;
   item.push(prop);
-  itemP.push(price);
+  var price = document.getElementById("item_price");
+
   var ul = document.getElementById("item_list");
+
   var li = document.createElement("li"); // li 태그 생성
-  li.innerHTML = item[item.length - 1] + " " + itemP[itemP.length - 1]; // li 태그안에 제품명 삽입
+
+  li.innerHTML = item[item.length - 1]; // li 태그안에 제품명 삽입
+  // li.innerHTML = item[item.length - 1] + " " + price.value+"원";
+
+  var b = document.createElement("b");
+  b.innerHTML = price.value + "원";
+  li.appendChild(b);
+
+
   var bt = document.createElement("button");
   bt.setAttribute('class', 'del_bt'); // setAttribute : 기능을 추가할 때 사용 ex) setAttribute('class', 'del_bt) or setAttribute("onclick","del()")
   bt.setAttribute("onclick","del(this)");
@@ -46,8 +54,9 @@ function del(obj){
   var parent_li = obj.parentNode;
   var parent_ul = parent_li.parentNode;
   parent_ul.removeChild(parent_li);
+}
 
-  /* 
+/* 
     document.createElement : 새 태그 생성
     ex) document.createElement("div"); div 생성
 
@@ -61,4 +70,3 @@ function del(obj){
     removeChild : 자식 태그 삭제
     ex) body.removeChild(p); : body 태그에서 해당 태그 삭제
   */
-}

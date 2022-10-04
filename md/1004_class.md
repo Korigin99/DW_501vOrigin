@@ -2,6 +2,9 @@
 
 
 ### 오전 수업
+
+- JavaScript로 html 다루기
+
 ```js
   var li = document.createElement("li"); // li 태그 생성
   // document.createElement : 새 태그 생성
