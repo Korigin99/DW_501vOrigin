@@ -9,7 +9,6 @@ function tb(col, row, wd, hg) {
 
 var bt_cnt = 0;
 var bt_check = false;
-var bt_save = 0;
 var tb_list = new Array();
 
 window.onload = function () {
@@ -28,6 +27,12 @@ window.onload = function () {
 };
 
 function add_button() {
+
+  if(bt_check){  // 새 버튼 생성 후 값등록 안되었으면 새버튼 생성 금지
+    alert("값 먼저 등록해주세요");
+    return;
+  }
+
   var bt = document.createElement("button");
   bt.appendChild(document.createTextNode("세팅" + (++bt_cnt)));
   bt.setAttribute("data-value","0");
@@ -64,12 +69,21 @@ function value_save(obj) {
   for (var i = 0; i < T_put.length; i++) {
     T_put[i].value = '';
   }
-  bt_save++;
 }
 
 function table_draw(obj){
   var draw = document.getElementById("draw");
   var data = tb_list[parseInt(obj.dataset.value-1)];
-  console.log(data);
-  draw.innerHTML = data.col + " " + data.row + " " + data.width + " " + data.height;
+  
+  var tab = "<table border='1'>"
+  for(var i=0; i<data.col; i++){
+    tab += "<tr>";
+    for(var j=0; j<data.row; j++){
+      tab += "<td width="+data.width+" height="+data.height+"></td>";
+    }
+    tab += "</tr>";
+  }
+    tab += "</table>"
+  draw.innerHTML = tab;
+
 }
