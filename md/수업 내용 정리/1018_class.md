@@ -72,7 +72,50 @@
     - resizeTo(x, y) : 윈도우 크기 변경(절대적)
     - open : 새 윈도우 생성
       -> open( url, window_name, property)
-  
+      -> url : 페이지 주소
+      -> window_name : _blank(새창에 열린다.)
+      -> _parent (부모 프레임에 열린다.)
+      -> _self (현재 페이지를 대체한다.)
+         _top (로드된 프레임셋 대체)
+      -> prooerty : 새 window의 옵션 부여 
+                    height 새창의 높이 지정
+                    width 새창의 너비 지정
+                    left 모니터 화면 왼쪽에서부터 위치
+                    top 모니터 화면 위쪽에서부터 위치
+
+
+
+
+
+-----
+
+## 오후 수업
+
+### DB
+* 관계형 데이터 베이스
+
+  * 관계 1:1(주민번호)
+
+  * 부모 자식 관계를 가진 관계형 데이터 베이스는 자식테이블에서 부모테이블 PK를 사용하고 있다면, 부모 테이블에 있는 PK는 지울 수 없다.
+
+- 삭제 방법
+  - **ON DELETE CASCADE** : 부모테이블에 있는 데이터를 지우면 자식테이블에 있는 데이터도 삭제 - 자주 사용
+  ```sql
+  --자식 테이블을 생성할 때 입력
+  CREATE TABLE products(
+	product_id int(4) AUTO_INCREMENT PRIMARY KEY,
+	product_price int(4) comment '물품가',
+	create_at datetime comment '입고 날짜',
+	shipment_price int(4) comment '출하가',
+	brand_id int(4) comment '브랜드 번호',
+	FOREIGN KEY (brand_id) REFERENCES brand(brand_id) ON DELETE CASCADE
+  );
+  ```
+  - ON DELETE SET NULL : 부모테이블에 있는 데이터를 지우면 자식테이블에 있는 데이터에 NULL.
+  - ON DELETE NO ACTION : 부모테이블에 있는 데이터를 지우면 자식테이블에 데이터에는 변화가 없다.
+  - ON DELETE SET DEFAULT : 부모테이블에 있는 데이터를 지우면 자식테이블 데이터 DEFAULT 값으로 변경
+  - *ON DELETE RESTRICT(기본값) : 자식테이블에서 부모테이블 사용하고 있으면 삭제 불가능
+
 
           
 
