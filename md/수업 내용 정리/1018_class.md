@@ -50,6 +50,7 @@
     - location : 현재 문서의 URL 정보
     - menubar : 메뉴바 표시 여부 지정
     - opener : open() 함수로 생성한 윈도우 이름
+              -> 부모를 의미함
     - name : window 이름
     - outerHeight : 윈도우 밖 테두리 높이
     - outerWidth : 윈도우 밖 테두리 너비
@@ -82,6 +83,14 @@
                     width 새창의 너비 지정
                     left 모니터 화면 왼쪽에서부터 위치
                     top 모니터 화면 위쪽에서부터 위치
+                    channelmode : 전체화면 (yes, NO)
+                    fullscreen : 전체화면 (yes, no)
+                    location : 주소 표지줄 표시여부 (yes, no)
+                    menubar : 메뉴바 표시 여부 (yes, no)
+                    scrollbars : 스크롤바 표시여부 (yes, no)
+                    status : 상태바 표시여부 (yes, no)
+                    resizable : window 크기 변경 가능 여부 (yes, no)
+                    toobat : 툴바 표시여부 (yes, no)
 
 
 
