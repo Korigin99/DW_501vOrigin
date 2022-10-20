@@ -40,7 +40,7 @@ f.close()
  """
 # 대전시 교통사고 정보
 
-f = open('교통사고정보3.csv', 'a', newline='')
+f = open('traffic_accident_info.csv', 'a', newline='')
 wr = csv.writer(f)
 # 사고 종류
 n1 = ['음주운전','과속','신호위반','중앙선 침범']
@@ -75,6 +75,7 @@ sameNum = []
 sameLoc = []
 sameKind = []
 sameDate = []
+sameDk = []
 addr = ''
 x = 0
 
@@ -86,7 +87,7 @@ for i in range(1000):
   yearRan = random.randrange(1960,2003)
   monthRan = random.randrange(1,13)
   dateRan = random.randrange(1,32)
-  speed = random.randrange(90, 140)
+  speed = random.randrange(80, 130)
   name = fnRan + mnRan
   adMonth = random.randrange(1,13)
   adDate = random.randrange(1,32)
@@ -94,28 +95,35 @@ for i in range(1000):
   accidentDate = "2022"+"."+str(adMonth) +"."+ str(adDate)
   nn = "2022" + num[adMonth-1] + str(random.randrange(1,100))
   dl = random.choice(driverSLicense)
-  # dk = random.choice(drinking)
+  dk = random.choice(drinking) # 음주 여부
   accidentKind = random.choice(n1) #사고 종류
   asd = random.choice(n2) # 부상
   loc = random.choice(acloc)
-  if(accidentKind == '음주운전'):
-    dk = '유'
-  else:
-    dk = '무'
+  
 
-  if (speed>=130):
+  if(dk == '유'):
+    accidentKind = '음주운전'
+
+  if(speed <= 90):
+    asd = '부상'
+
+  if (speed>=120):
     asd = '사망'
+    accidentKind = '과속'
+
 
   sameLoc.append(loc) 
   sameNum.append(nn)
   sameKind.append(accidentKind)
   sameDate.append(accidentDate)
+  sameDk.append(dk)
   
   for j, snum in enumerate(sameNum):
     if nn in snum:
       loc = sameLoc[j]
       accidentKind = sameKind[j]
       accidentDate = sameDate[j]
+      dk = sameDk[j]
       break
     
   wr.writerow([i+1, name, sexRan, dateBirth, '유','유', dk, asd, accidentKind, accidentDate, speed, loc, nn])
