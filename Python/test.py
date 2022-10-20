@@ -40,7 +40,7 @@ f.close()
  """
 # 대전시 교통사고 정보
 
-f = open('교통사고정보2.csv', 'a', newline='')
+f = open('교통사고정보3.csv', 'a', newline='')
 wr = csv.writer(f)
 # 사고 종류
 n1 = ['음주운전','과속','신호위반','중앙선 침범']
@@ -73,8 +73,12 @@ num = ['A','B','C','D','Z','F','G','H','I','J','K','L']
 
 sameNum = []
 sameLoc = []
-
+sameKind = []
+sameDate = []
+addr = ''
 x = 0
+
+c = 0
 for i in range(1000):
   fnRan = random.choice(fn)
   mnRan = random.choice(mn)
@@ -101,14 +105,21 @@ for i in range(1000):
 
   if (speed>=130):
     asd = '사망'
-  sameLoc[i] = loc
-  sameNum[i] = nn
-  for j in sameNum:
-    if(sameNum[j] == nn):
-      loc = sameLoc[j]
 
-  wr.writerow([i+1, name, sexRan, dateBirth, '유', '유', dk, asd, accidentKind, accidentDate, speed, loc, nn])
+  sameLoc.append(loc) 
+  sameNum.append(nn)
+  sameKind.append(accidentKind)
+  sameDate.append(accidentDate)
+  
+  for j, snum in enumerate(sameNum):
+    if nn in snum:
+      loc = sameLoc[j]
+      accidentKind = sameKind[j]
+      accidentDate = sameDate[j]
+      break
+    
+  wr.writerow([i+1, name, sexRan, dateBirth, '유','유', dk, asd, accidentKind, accidentDate, speed, loc, nn])
 
 """ with open("교통사고정보1.csv", 'a') as f:
-  f.truncate(0)
- """
+  f.truncate(0) """
+
