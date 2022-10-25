@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0811-2ultag</title>
+
+    <style>
+        /* 선택자 - css는 html에 효과를 적용하기위한 언어,
+                    html에 여러개의 태그가 사용되므로,
+                    특정태그만 선택하여 효과를 적용하려면
+                    선택자라는 것을 사용해야 한다. 
+            선택자의 종류 - 태그 이름, id, class
+            id - 현재 html 문서에서 고유한 이름이어야 한다.(중복 불가)
+            class - id와 다르게 중복 가능
+            (같은 class 명으로 여러 태그에 적용할 경우)
+        */
+        
+        /* id와 class 선택 방법
+            id는 id명 앞에 #을 붙인다.
+            class는 class명 앞에 .을 붙인다. 
+        */
+        /* #cafe{
+            color: deepskyblue;
+            
+        }
+        .drink_list{
+            font-size: 15pt;
+        } */
+        
+        ul{
+           list-style-type: none; 
+        }
+
+        #cafe{
+            background:#C2E2E8;
+        }
+
+        .drink_list>ul{
+            opacity: 0; /* 투명도 */
+            height:0;
+        }
+        .drink_list:hover ul{ /* 마우스 이벤트 */
+            opacity: 1;
+            height: 60px;
+        }
+    </style>
+
+</head>
+<body>
+    <ul id="cafe">
+        <li class="drink_list">Coffe
+            <ul>
+                <li>아메리카노</li>
+                <li>카페라떼</li>
+                <li>바닐라라떼</li>
+            </ul>
+        </li>
+        <li class="drink_list">Tea
+            <ul>
+                <li>카모마일</li>
+                <li>자스민</li>
+                <li>얼그레이</li>
+            </ul>
+        </li>
+        <li class="drink_list">Milk
+            <ul>
+                <li>딸기우유</li>
+                <li>바나나우유</li>
+                <li>초코우유</li>
+            </ul>
+        </li>
+    </ul>
+</body>
+</html>

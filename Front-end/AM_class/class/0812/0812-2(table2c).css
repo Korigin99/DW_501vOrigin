@@ -1,0 +1,25 @@
+p{
+    font-size: 20pt;
+    font-weight: 700;
+    text-shadow: 3px 3px 2px gray;
+    /* 텍스트 그림자 : x축 y축 농도  색상 */
+}
+table tr td{
+    border: 1px solid black;
+    width: 200px;
+    height: 300px;
+}
+hr{
+    width: 610px;
+    margin-left:0%;
+}
+.animal img{
+    width: 195px;
+    height: auto;
+}
+.animal p{
+    font-size: 12pt;
+    font-weight: 400;
+    text-shadow: none;
+}
+

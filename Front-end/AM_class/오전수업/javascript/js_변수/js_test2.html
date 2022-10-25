@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script type="text/javascript">
+    /* var num1 = 10;
+    var num2 = 20;
+    var num3 = 0;
+    var result;
+
+    num1 = 21; num2 = 36; num3 = 25;
+
+    result = (num1 > 10 || num2 < 40) && (num3 > 100 & num2 < 10);
+    조건연산자 : 조건식 ? 참일 경우 내용 : 거짓일 경우 내용
+
+    var num1 = parseInt(prompt('정수입력 : '));
+    var num2 = parseInt(prompt('정수입력 : '));
+
+    var result = num1 > num2 ? num1 : num2;
+    document.write(result); */
+    /*
+        조건연산자에서 참과 거짓에 해당하는 부분에 변수, 데이터(정수, 실수, 문자열),
+        계산식, 조건연산자, 함수 등등 가능
+        단, 대입연산자 안됨!
+    */
+
+    /*    var tall = parseInt(prompt('키를 입력하세요 : '));
+       var can = tall >= 130 ? '탑승 가능' : '탑승 불가능'
+       document.write(can); */
+
+    /* var a = parseInt(prompt('a 정수 입력 :'));
+    var b = parseInt(prompt('b 정수 입력 :'));
+    var c = parseInt(prompt('c 정수 입력 :'));s
+    var result = a > b ? a > c ? a : c : b > c ? b : c;
+    document.write(result); */
+
+    /* 
+    var n = parseInt(prompt("숫자 입력 : "));
+    n = n%4==0 ? '4의 배수입니다.' : '4의 배수가 아닙니다.';
+    document.write(n); 
+    */
+
+    var p_time = parseInt(prompt("주차 시간을 입력하세요:(분으로 입력)"));
+    var b_fee = 1000;
+    var t_fee = 1500;
+    var t = 100;
+    p_time = parseInt(p_time / 10);
+    p_time = (p_time < 3) ? b_fee : (p_time < 12) ? b_fee + (p_time - 3) * t : (p_time - 12) * t + t_fee;
+    document.write("주차 요금은 "+p_time+"원입니다.");
+
+</script>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> js_array.html </title>
+</head>
+<body>
+    
+</body>
+<script>
+    var apple_box = new Array();
+    apple_box.push(68);
+    apple_box.push(65);
+    apple_box.push(61);
+    apple_box.push(69);
+    apple_box.push(66);
+
+    for(var i=0; i<5; i++){
+        document.write(apple_box[i]+"<br>");
+    }
+
+    // 사과상자에 사과가 평균 몇 개 담겨있는지 확인
+
+    var total_apple =0;
+    for(var i=0; i<apple_box.length;i++){
+        total_apple = total_apple + apple_box[i];
+        
+    }
+    var apple_avg = parseInt(total_apple / apple_box.length);
+    document.write("사과 상자 평균 갯수 : " + apple_avg +"<br>");
+
+    var res = "";
+    for(var i=0; i<apple_box.length; i++){
+        if(apple_avg > apple_box[i]){
+            res = i+1+"번 상자는 평균보다 "+(apple_avg -apple_box[i])+"개가 적습니다.<br>";
+        }else if(apple_avg == apple_box[i]){
+            res = i+1+"번 상자는 평균과 똑같습니다.<br>";
+        }
+        else{
+            res = i+1+"번 상자는 평균보다 "+(apple_box[i] - apple_avg)+"개가 많습니다.<br>";
+        }
+        document.write(res);
+    }
+
+
+    
+</script>
+</html>

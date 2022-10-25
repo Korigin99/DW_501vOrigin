@@ -1,0 +1,21 @@
+/* init.css */
+
+.h1-txt{
+  font-size:2.1rem;
+  margin: 0.8rem 0.6rem;
+}
+
+.h3-txt{
+  font-size:1.3rem;
+  margin:0.5rem 0;
+}
+
+.txt-white{
+  color:white;
+}
+
+.txt-pink{
+  color:pink;
+  font-weight: 800;
+}
+

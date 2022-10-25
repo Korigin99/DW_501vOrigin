@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" name="num" id="num" />
+    <button type="button" onclick="de()">입력</button>
+    <hr />
+    <div id="result"></div>
+</body>
+<script>
+    // html로 부터 받아오는 방식 2 가지
+    /* document.getElementById('num'); //id 객체라는 단위로 저장
+    document.getElementsByClassName('클래스 명'); //class
+    document.getElementsByName('name 명'); //name
+    document.getElenmentsByTagName('태그명'); //태그이름
+
+    document.querySelector("#num"); //id
+    document.querySelector(".클래스명"); //class
+    document.querySelectorAll(".클래스명"); //class 
+    document.querySellectorAll("태그명"); // 태그이름
+    document.querySellectorAll('[name명]'); //name */
+
+    /* function data_push() {
+        var number = document.getElementById('num');
+        var val = number.value;
+
+        var res = document.getElementById('result');
+        res.innerHTML = val;
+    } */
+
+    function de() {
+        var n = document.getElementById('num').value;
+        n = parseInt(n);
+        var result = document.getElementById('result');
+        var answer = ' ';
+        if (n % 2 == 0) {
+            answer = '짝수';
+        } else {
+            answer = '홀수';
+        }
+
+        result.innerHTML = answer ;
+    }
+
+</script>
+
+</html>

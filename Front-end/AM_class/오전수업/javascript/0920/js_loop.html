@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="number" id="gugu" min="2" max="9">
+    <button onclick="num()">입력</button>
+    <hr />
+    <div id="result"></div>
+    <hr>
+    <input type="number" id="row" />
+    <input type="number" id="col" />
+    <button onclick="make()">주사위 생성</button>
+    <hr />
+    <div id="result1"></div>
+</body>
+<script>
+    // 루프문
+    /* function gugudan(){
+        var x = document.getElementById("gugu").value;
+        var res = document.getElementById("result");
+        var i = 1;
+        var sum = '';
+        while(i<10){
+            sum += x + " * " + i + " = " + (x*i) +"<br>";
+            i++;
+        }
+        res.innerHTML = sum;
+    } */
+    /* function select_coin(it) { */
+
+    /* var res = document.querySelector("#result1"); */
+
+    /* if ((coin % 2 == 0) && it == "front") {
+        res.innerHTML = "앞면, 정답"
+    } else if ((coin % 2 == 1) && it == "back") {
+        res.innerHTML = "뒷면, 정답";
+    } else {
+        res.innerHTML = "오답~"
+    } */
+
+    /* var out = "";
+    var i = 1;
+    var count = 0; */
+
+    /* while (i < 11) {
+    var coin = Math.floor(Math.random() * 10) + 1;
+    switch (coin % 2) {
+        case 0:
+            switch (it) {
+                case 'front':
+                    out += "앞면, 정답 <br>";
+                    count++;
+                    break;
+                case 'back':
+                    out += "오답 <br>";
+                    break;
+            }
+            break;
+        case 1:
+            switch (it) {
+                case 'front':
+                    out += "오답 <br>";
+                    break;
+                case 'back':
+                    out += "뒷면, 정답 <br>";
+                    count++;
+                    break;
+            }
+            break;
+    }
+    i++;
+}
+res.innerHTML = out + count*10 +'%';
+} */
+
+    function make() {
+        var row = document.getElementById("row").value;
+        var col = document.getElementById("col").value;
+        var res = document.getElementById("result1");
+        var out = "";
+        var i = 1;
+        out += "<table>";
+        while (i <= row) {
+            out += "<tr>";
+            var k=1;
+            while (k <= col) {
+                out += "<td>" + k + "</td>";
+                k++;
+            }
+            out += "</tr>";
+            i++;
+        }
+        out += "</table>";
+    res.innerHTML = out;
+    }
+
+
+
+    
+</script>
+<style>
+    table tr td {
+        border: 1px solid black;
+        width: 50px;
+        height: 50px;
+        text-align: center;
+    }
+</style>
+
+</html>
