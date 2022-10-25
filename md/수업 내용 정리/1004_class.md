@@ -1,8 +1,6 @@
 # 10월 4일 수업
 
 
-### 오전 수업
-
 - JavaScript로 html 다루기
 
 ```js
@@ -19,7 +17,6 @@
   // removeChild : 자식 태그 삭제
 ```
 
-### 오후 수업
 
 - DataBase
 

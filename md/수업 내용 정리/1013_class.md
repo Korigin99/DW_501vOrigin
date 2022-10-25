@@ -1,6 +1,5 @@
 # 10월 13일 수업
 
-## 오전 수업 
 
 - ### JAVASCRIPT
     - setAttribute - id, class, style 등 다양한 속성을 추가할 수 있다.
@@ -39,9 +38,6 @@
     ```javascript
     var obj = new Object();
     ```
-
-
-## 오후 수업
 
  - ### MySQL
     - 서브 쿼리

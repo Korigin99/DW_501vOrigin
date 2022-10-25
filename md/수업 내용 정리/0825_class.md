@@ -5,7 +5,7 @@
 
 # 2022.08.25 수업 내용
 
-## 오전 HTML + css  
+## HTML + css  
 
 div 태그를 이용하여 게시판 제작  
 diplay:flex를 이용하여 게시판을 제작  
@@ -23,7 +23,7 @@ GET : 데이터를 가공하지 않고 전달
 POST : 데이터를 암호화 하여 전달  
 
 
-## 오후 Javascript
+## Javascript
 
 if문을 활용하여 회원가입에 영향을 주는 함수를 만들었다.
 ```javascript
