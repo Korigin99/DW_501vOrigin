@@ -14,10 +14,59 @@
   display:flex;
   flex-direction : column;
   position: relative;
-  width: 90%;
-  padding: 5% 5%;
+  /* width: 90%; */
+  /* 너비에 쓸 수 있는 계산식 */
+  width:calc( 100% - 100px );
+  padding: 5% 50px;
   max-width:1000px;
   margin: 0 auto;
+}
+
+#image-section{
+  width: 100%;
+  align-items: center;
+  justify-items: center;
+  display: flex;
+}
+
+.image-wrap{
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+}
+
+/* 고정적, 가변적 계산식*/
+/* (가변길이 적용 할 길이 값 / 적용할 박스를 감싸고 있는 박스의 가로너비) * 100  */
+
+.imgb1{
+   width: 36%;
+   background: pink;
+   font-size: 5vmin;
+}
+
+.imgb2{
+  width: 64%;
+  background:#478899;
+}
+
+.image-box{
+  height: 350px;
+}
+
+#multi-section{
+  width: 100%;
+}
+
+#multi-section > div{
+  width: 90%;
+  display: inline-block;
+}
+
+#multi-section img, #multi-section video{
+  width: 70%;
+  max-width: 100%;
+  margin: 0 15%;
 }
 
 /* 태블릿 */

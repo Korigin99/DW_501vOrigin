@@ -1,0 +1,45 @@
+#wrap{
+  max-width: 1200px;
+  width: 90%;
+  margin: 0 auto; 
+}
+
+.box{
+  display: inline-block;
+  height: 100px;
+  width: 20%;
+  padding: 0;
+  margin: 0;
+}
+
+.box1{
+  background: red;
+}
+
+.box2{
+  background: green;
+}
+
+.box3{
+  background: blue;
+}
+
+.box4{
+  background: pink;
+}
+
+.box5{
+  background: violet;
+}
+
+
+@media all and (min-width:768px){
+  .box{ width: 50%;}
+  .box5{width: 100%;}
+}
+
+@media all and (min-width:1024px){
+  .box{width: 20%;}
+}
+
+
