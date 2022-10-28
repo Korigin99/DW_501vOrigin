@@ -1,17 +1,128 @@
 @charset "utf-8";
 
 #wrap{
+  display: flex;
+  flex-flow: column nowrap;
+  width: 90%;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+#wrap section{
+  box-sizing: border-box;
+}
+
+.h1-txt{
+  font-size: 2.2rem;
+  margin: 1rem 0;
+}
+
+.h2-txt{
+  font-size: 1.8rem;
+  margin: 0.8rem 0;
+}
+
+.h3-txt{
+  font-size: 1.3rem;
+  margin: 0.5rem 0;
+}
+
+.h4-txt{
+  font-size: 0.7rem;
+  margin: 0.3rem 0;
+}
+
+.txt-white{
+  color: white;
+  font-weight: 750;
+}
+
+.txt-green{
+  color: #3ebe51;
+  font-weight: 700;
+  font-family: '휴먼편지체', '굴림';
+}
+
+.txt-orange{
+  color: #f1aa2e;
+  font-weight: 800;
+}
+
+.txt-red{
+  color: #fb3411;
+  font-weight: 750;
+}
+
+/* 메뉴 */
+#header{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+}
+
+.menu-box h2{
+  order: 1;
+  width: 100%;
+  padding: 20px 0;
+  line-height: 1.9rem;
+  text-align: center;
+  text-transform: uppercase; 
+  /* uppercase 대문자로 나옴 */
+  background: #37bcd6;
+  text-shadow: 2px 1px 1px #666;
+}
+
+.nav{
+  order: 1;
+  width: 100%;
+}
+
+.gnb{
+  display: none;
+}
+
+.gnb li{
+  background: #3ebe51;
+}
+
+.gnb li a{
+  width: 80%;
+  padding: 15px 0;
+  font-size: 0.9rem;
+  text-indent: 1.25rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.menu-box{
+  position: relative;
+}
+
+.menu-toggle{
+  position: absolute;
+  display: block;
+  width: 1.8rem;
+  top: 1.8rem;
+  right: 15px;
+  cursor: pointer;
+}
+
+.menu-toggle .bi-list{
+  font-size: 1.8rem;
+}
+
+/* 최소화면 모바일 */
+@media all and (min-width: 320px){
 
 }
 
-@media all and (max-width: 960px){
+/* 태블릿 */
+@media all and (min-width: 768px){
 
 }
 
-@media all and (max-width: 768px){
-
-}
-
-@media all and (max-width: 320px){
+/* pc */
+@media all and (min-width: 960px){
   
 }
