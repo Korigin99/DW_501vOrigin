@@ -69,8 +69,9 @@
   text-align: center;
   text-transform: uppercase; 
   /* uppercase 대문자로 나옴 */
-  background: #37bcd6;
+  
   text-shadow: 2px 1px 1px #666;
+  margin: 0;
 }
 
 .nav{
@@ -93,17 +94,21 @@
   text-indent: 1.25rem;
   font-weight: bold;
   text-transform: uppercase;
+  text-align: center;
+  display: inline-block;
 }
 
 .menu-box{
+  width: 100%;
   position: relative;
+  background: #37bcd6;
 }
 
 .menu-toggle{
   position: absolute;
   display: block;
   width: 1.8rem;
-  top: 1.8rem;
+  top: 0.9rem;
   right: 15px;
   cursor: pointer;
 }
@@ -119,7 +124,29 @@
 
 /* 태블릿 */
 @media all and (min-width: 768px){
-
+  #wrap{
+    flex-flow: row wrap;
+  }
+  #header{
+    flex-direction: row;
+  }
+  .menu-box h2{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20%;
+  }
+  .nav{
+    position: relative;
+    min-height: 5rem;
+  }
+  .gnb{
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 50%;
+    z-index: 20;
+  }
 }
 
 /* pc */

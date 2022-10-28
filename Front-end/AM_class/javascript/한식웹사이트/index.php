@@ -3,8 +3,11 @@
 <?php require_once("head.html") ?>
 <body>
   <div id="wrap">
-    <?php require_once("header.html") ?>
+     <!-- 메뉴 -->
+     <?php require_once("header.html") ?>
 
+    <!-- 슬라이드 -->
+    <?php require_once("main.slide.html")?>
   </div>
 </body>
 </html>
