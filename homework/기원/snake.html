@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>snake game</title>
+    
    <style>
        body{
            margin: 0px;
@@ -16,16 +17,18 @@
        }
        canvas{
            box-shadow: black 20px 10px 50px; /*elevate our canvas*/
-
+            background: black;
        }
    </style>
 </head>
 <body>
+    <canvas id="game" width="400" height="400"></canvas>
 </body>
+<script src="snake.js"></script>
 <!-- <canvas id="game" width="400" height="400"/> -->
-<canvas id="game-canvas" width="400" height="400"></canvas>
+
     <!-- <script src="index.js"></script> -->
-    <script>
+    <!-- <script>
         const canvas = document.getElementById("game-canvas")
         const ctx = canvas.getContext("2d")
 
@@ -135,5 +138,5 @@
             }
         }
 
-    </script>
+    </script> -->
 </html>
