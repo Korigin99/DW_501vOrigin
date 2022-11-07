@@ -93,6 +93,7 @@
         font-size: 25px;
         font-weight: 600;
         border-radius: 20px;
+        color: black;
     }
 
     .user_bingo .bingo_box:hover {
@@ -793,13 +794,13 @@
     function randomN() {
         if (flag == 1) {
             while (comNum.length < 25) {
-                var n = parseInt(Math.random() * 100) + 1;
+                var n = parseInt(Math.random() * 25) + 1;
                 if (comNum.indexOf(n) < 0) {
                     comNum.push(n);
                 }
             }
             while (userNum.length < 25) {
-                var n = parseInt(Math.random() * 100) + 1;
+                var n = parseInt(Math.random() * 25) + 1;
                 if (userNum.indexOf(n) < 0) {
                     userNum.push(n);
                 }
@@ -825,6 +826,7 @@
                 for (var j = 0; j < comDiv2.length; j++) {
                     comDiv2[i][j].value = comNum[cN++];
                     comDiv2[i][j].innerHTML = comNum[cN2++];
+                    comDiv2[i][j].style.color = "black";
                 }
             }
             flag = 0;
