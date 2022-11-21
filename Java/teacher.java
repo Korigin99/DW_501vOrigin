@@ -1,5 +1,7 @@
 package hw1121;
 
+
+// 포함
 public class teacher {
 	String name;
 }
