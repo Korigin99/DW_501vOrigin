@@ -18,4 +18,23 @@
   ``` python
   tu = "새신발","밟혔다."
   print(tu)
+  # 튜플 생성
+  tu = "새신발", "밟혔다."
+  print(tu)
+  
+  tu2 = ("그래서", "주먹으로쳤다.")
+  print(tu2)
+  tu3 = ("아프다")
+  print(type(tu3))
+  tu4=("하녀복장",)
+  print(type(tu4))
+  
+  tu5 = ("그리고", "난", "발목을 차였다","혼신의주먹을날릴뻔")
+  a,b,c,d = tu5
+  print(a,b,c,d)
+  print(tu5[2])
+  print(tu5[1:])
+  # 변경 추가 불가능
+  print(tu5.count("난"))
+  print(tu5.index("발목을 차였다"))
   ```
